@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import TextLogo from './components/textLogo'
+import CornerButton from './components/cornerbutton';
+import Searchbar from './components/searchbar';
+import NavBar from './components/navbar';
+import Wish from './components/wish'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TextLogo/>
+    <CornerButton/>
+    <NavBar/>
+    <Searchbar/>
+    {/*<Wish/> Show when Ønske is clicked*/}
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
