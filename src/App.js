@@ -4,6 +4,7 @@ import CornerButton from './components/cornerbutton';
 import Searchbar from './components/searchbar';
 import NavBar from './components/navbar';
 import Wish from './components/wish'
+import DeleteButton from './components/booklet/deleteButton';
 
 function App() {
   
