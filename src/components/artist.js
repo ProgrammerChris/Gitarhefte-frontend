@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export default class Artist extends Component {
     render() {
+        //TODO: Make clickable
         return (
             <li style={style}>
                 {this.props.artist}
