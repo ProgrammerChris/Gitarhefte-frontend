@@ -1,18 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Song extends Component {
-    render() {
-        //TODO: Add preview button
-        //TODO: Add "add to booklet" button
-        return (
-            <li style={style}>
-                {   
-                    this.props.artistName,
-                    this.props.songName
-                }
-            </li>
-        )
-    }
+const song = () => {
+    //TODO: Add preview button
+    //TODO: Add "add to booklet" button
+    return (
+        <li style={style}>
+            {   
+                this.props.artistName,
+                this.props.songName
+            }
+        </li>
+    )
 }
 
 const style = {
@@ -26,3 +24,5 @@ const style = {
     marginTop: "15px",
     boxShadow: "-5px 2px 15px 1px #805020"
 }
+
+export default song;

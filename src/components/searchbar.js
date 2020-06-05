@@ -1,14 +1,12 @@
-import React, { Component } from "react"
+import React from "react"
 
-class Searchbar extends Component   {
-    render()    {
+const searchbar = () => {
         return (
             <form style={formStyle} id="searchbar-form" action="">
                 <input id="search-input" name="searchbar" type="search" autoComplete="off" placeholder="Artist eller sang" label="searchbutton" style={inputStyle}/>
                 <button style={buttonStyle} type="submit" id="searchbutton" name="searchbutton"><i className="fa fa-search"></i></button>
             </form>
         )
-    }
 }
 
 const formStyle = {
@@ -45,4 +43,4 @@ const buttonStyle = {
     textAlign: "center",
 }
 
-export default Searchbar;
+export default searchbar;

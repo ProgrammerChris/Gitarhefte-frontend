@@ -1,19 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 
-class CornerButton extends Component    {
-    render()    {
-        return (
-            <button type="button" name="corner-button" style={style}>
-                <img alt="Hefte knapp" style={iconStyle} src={require("../img/booklet.svg")}/>
-            </button>
-        ) 
-    }
+const cornerButton = () => {
+    // TODO: Make booklet button on all pages except on booklet page. Make it search button on booklet page.
+    return (
+        <button type="button" name="corner-button" style={style}>
+            <img alt="Hefte knapp" style={iconStyle} src={require("../img/booklet.svg")}/>
+        </button>
+    ) 
 } 
 
 const style = {
     gridColumn: "4 / 5",
     gridRow: "1",
-    alignSelf: "center", /* Add margin or paddin to desktop version */
+    alignSelf: "center", /* Add margin or padding to desktop version */
     justifySelf: "end",
     justifyContent: "center",
     alignItems: "center",
@@ -32,4 +31,4 @@ const iconStyle = {
 }
 
 
-export default CornerButton;
+export default cornerButton;

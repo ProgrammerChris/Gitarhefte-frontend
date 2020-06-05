@@ -1,21 +1,17 @@
-import React, { Component } from 'react'
-import DeleteButton from './deleteButton'
+import React from 'react'
 
-class BookletMain extends Component {
-    render() {
-        return (
-            <div style={style}>
-                {/*TODO: Add input field for booklet name*/}
-                <ul>
-                    {/*TODO: Add songs to this list, together with deletebutton linked to delete the given list item*/}
-                </ul>
-                {/*TODO: Add captcha*/}
-                {/*TODO: add email input form*/}
-                {/*TODO: add preview button*/}
-                {/*TODO: add send button*/}
-            </div>
-        )
-    }
+const bookletMain = (props) => {
+    return (
+        <div style={style}>
+            <h1>Test</h1>
+            {/*TODO: Add input field for booklet name*/}
+            <ul>
+                {/*TODO: Add songs to this list, together with deletebutton linked to delete the given list item
+                            Make these songs movable to choose the order they will be in the finnished booklet*/}
+            </ul>
+            {/*TODO: add download button*/}
+        </div>
+    )
 }
 
 const style = {
@@ -29,4 +25,4 @@ const style = {
     boxShadow: "-5px 2px 15px 1px #805020",
 }
 
-export default BookletMain
+export default bookletMain;

@@ -1,65 +1,58 @@
 [
     {
-        "artist": "test1",
+        "artist": "Ed Sheeran",
         "songs": [
             "song1",
             "song2"
         ]
     },
     {
-        "artist": "test2",
-        "songs": [
-            "song3",
-            "song4"
-        ]
-    },
-    {
-        "artist": "test3",
+        "artist": "Dr. Hook",
         "songs": [
             "song1",
             "song2"
         ]
     },
     {
-        "artist": "test4",
-        "songs": [
-            "song3",
-            "song4"
-        ]
-    },
-    {
-        "artist": "test5",
+        "artist": "Linkin Park",
         "songs": [
             "song1",
             "song2"
         ]
     },
     {
-        "artist": "test6",
-        "songs": [
-            "song3",
-            "song4"
-        ]
-    },
-    {
-        "artist": "test7",
+        "artist": "Paramore",
         "songs": [
             "song1",
             "song2"
         ]
     },
     {
-        "artist": "test8",
+        "artist": "Vinskvetten",
         "songs": [
-            "song3",
-            "song4"
+            "song1",
+            "song2"
         ]
     },
     {
-        "artist": "test9",
+        "artist": "Bon Jovi",
         "songs": [
-            "song3",
-            "song4"
+            "song1",
+            "song2"
+        ]
+    },
+    {
+        "artist": "Smokie",
+        "songs": [
+            "song1",
+            "song2"
+        ]
+    },
+    {
+        "artist": "Disturbed",
+        "songs": [
+            "song1",
+            "song2"
         ]
     }
 ]

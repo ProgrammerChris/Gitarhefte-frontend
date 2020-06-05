@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Artist extends Component {
-    render() {
-        //TODO: Make clickable
-        return (
-            <li style={style}>
-                {this.props.artist}
-            </li>
-        )
-    }
+const artist = (props) => {
+    //TODO: Make clickable, show list of songs from that artist.
+    return (
+        <li style={style}>
+            {props.artistName}
+        </li>
+    )
 }
 
 const style = {
+    fontSize: "24px",
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
@@ -22,3 +21,5 @@ const style = {
     marginTop: "15px",
     boxShadow: "-5px 2px 15px 1px #805020"
 }
+
+export default artist;
