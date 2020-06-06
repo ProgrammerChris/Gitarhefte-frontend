@@ -1,23 +1,18 @@
 import React from "react";
 import TextLogo from './components/textLogo'
 import CornerButton from './components/cornerbutton';
-import Searchbar from './components/searchbar';
-import SearchResults from './components/searchResults'
-import BookletMain from "./components/booklet/bookletMain";
-import searchResults from "./components/searchResults";
+import Search from './components/search';
 
 const App = () => {
-  
+
     return(
       <React.StrictMode>
       <TextLogo/>
       <CornerButton />
-      <Searchbar/>
-      <SearchResults/>
+      <Search/>
       </React.StrictMode>
     )
 }
-
 
 
 export default App;

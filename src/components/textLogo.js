@@ -1,6 +1,6 @@
 import React from 'react';
 
-const textLogo= () => {
+const TextLogo = () => {
     /* TODO: onClick, go back to "home" page */
     return (
         <div id="text-logo" style={style}>
@@ -14,5 +14,5 @@ const style = {
     gridRow: "1",
 }
 
-export default textLogo;
+export default TextLogo;
 

@@ -2,57 +2,30 @@
     {
         "artist": "Ed Sheeran",
         "songs": [
-            "song1",
-            "song2"
-        ]
-    },
-    {
-        "artist": "Dr. Hook",
-        "songs": [
-            "song1",
-            "song2"
+            "Perfect",
+            "Lego House",
+            "Shape of you",
+            "Thinking out loud"
         ]
     },
     {
         "artist": "Linkin Park",
         "songs": [
-            "song1",
-            "song2"
-        ]
-    },
-    {
-        "artist": "Paramore",
-        "songs": [
-            "song1",
-            "song2"
-        ]
-    },
-    {
-        "artist": "Vinskvetten",
-        "songs": [
-            "song1",
-            "song2"
-        ]
-    },
-    {
-        "artist": "Bon Jovi",
-        "songs": [
-            "song1",
-            "song2"
-        ]
-    },
-    {
-        "artist": "Smokie",
-        "songs": [
-            "song1",
-            "song2"
+            "Heavy",
+            "Numb"
         ]
     },
     {
         "artist": "Disturbed",
         "songs": [
-            "song1",
-            "song2"
+            "The sound of silence",
+            "A reason to fight"
+        ]
+    },
+    {
+        "artist": "Bon Jovi",
+        "songs": [
+            "Always"
         ]
     }
 ]
