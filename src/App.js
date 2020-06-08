@@ -1,17 +1,17 @@
 import React from "react";
 import TextLogo from './components/textLogo'
 import CornerButton from './components/cornerbutton';
-import Search from './components/search';
+import ListView from "./components/listView";
 
 const App = () => {
 
-    return(
-      <React.StrictMode>
-      <TextLogo/>
+  return (
+    <React.StrictMode>
+      <TextLogo />
       <CornerButton />
-      <Search/>
-      </React.StrictMode>
-    )
+      <ListView/>
+    </React.StrictMode>
+  )
 }
 
 
