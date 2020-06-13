@@ -15,23 +15,24 @@ const Artists = (props) => {
 		setSearchTerm(event.target.value);
 	};
 	
-	const allArtists = Object.entries(props.artists)
+	const allArtists = Object.entries(props.artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load. 
+													 //! Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
 
 	useEffect(() => {
 
 		// Finner artister som stemmer med søk
 		let artistHits = allArtists.filter((searchResults) => (
 			searchResults[0].toLowerCase().includes(searchTerm.toLowerCase())
-		))
-
-		artistHits.filter((artist)=> artist[0])
+		)).map((artist)=> artist[0])
 
 		// Leter igjennom sanger for å se om noen sanger stemmer med søk, viss ja, vis artist.
 		let songHits = [];
 		for (let i = 0; i < allArtists.length; i++)	{
+			// JSON of artists, with array of songs for each artist. Very messy way of getting the songs...
 			let songs = Object.entries(allArtists[i][1])[0][1]
 			for (let j = 0; j < songs.length; j++)	{
 				if (songs[j].toLowerCase().includes(searchTerm.toLowerCase()))	{
+					// Push the artist connected to the song that matched the search into the
 					songHits.push(allArtists[i][0])
 				}
 				
@@ -39,7 +40,7 @@ const Artists = (props) => {
 		}
 
 		// combine search results from songs and artists
-		const results = artistHits.map((artist)=> artist[0]).concat(songHits)
+		const results = artistHits.concat(songHits)
 
 		let resultsAsSet = new Set(results) // Converting the array to set for unique items on list. // ? Should this be set as a Set at the start instead of converting here?
 		setSearchResults(Array.from(resultsAsSet))
@@ -51,7 +52,7 @@ const Artists = (props) => {
 				id="search-input"
 				name="searchbar"
 				type="text"
-				autoComplete="off"
+				autoComplete="on"
 				onChange={handleChange}
 				placeholder="Artist eller sang"
 				value={searchTerm}
