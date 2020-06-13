@@ -8,7 +8,7 @@ const Song = (props) => {
 	let toggleHover = () => setHover(true);
 	let unToggleHover = () => setHover(false);
 
-	let style;
+	let style; //! MinMax height for long song names
 	if (hover) {
 		style = {
 			fontSize: "26px",

@@ -17,11 +17,12 @@ const Artist = (props) => {
 	}
 
 	const countStyle = {
-		width: "10%"
+		width: "10%",
+		paddingRight: "10%"
 
 	}
 
-	let style;
+	let style; //! MinMax height for long artist names
 	if (hover) {
 		style = {
 			display: "flex",
