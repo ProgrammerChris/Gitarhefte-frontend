@@ -13,7 +13,8 @@ const Artist = (props) => {
 
 	const artistStyle = {
 		width: "90%",
-		paddingLeft: "10%"
+		paddingLeft: "10%",
+		paddingRight: "10%"
 	}
 
 	const countStyle = {
@@ -22,7 +23,7 @@ const Artist = (props) => {
 
 	}
 
-	let style; //! MinMax height for long artist names
+	let style;
 	if (hover) {
 		style = {
 			display: "flex",
@@ -45,7 +46,8 @@ const Artist = (props) => {
 				display: "flex",
 				fontSize: "24px",
 				backgroundColor: "#fff",
-				height: "50px",
+				height: "fit-content",
+				maxHeight: "100px",
 				width: "100%",
 				borderRadius: "15px",
 				marginTop: "15px",

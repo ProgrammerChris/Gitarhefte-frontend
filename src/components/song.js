@@ -13,7 +13,8 @@ const Song = (props) => {
 		style = {
 			fontSize: "26px",
 			backgroundColor: "#ffd",
-			height: "50px",
+			height: "fit-content",
+			maxHeight: "100px",
 			width: "100%",
 			borderRadius: "15px",
 			marginTop: "15px",
@@ -29,7 +30,8 @@ const Song = (props) => {
 			style = {
 				fontSize: "24px",
 				backgroundColor: "#fff",
-				height: "50px",
+				height: "fit-content",
+				maxHeight: "100px",
 				width: "100%",
 				borderRadius: "15px",
 				marginTop: "15px",
