@@ -9,52 +9,50 @@ const Artist = (props) => {
 
 	const listElementStyle = {
 		display: "grid",
+		height: "fit-content",
+		maxHeight: "100px",
+		paddingBottom: "15px"
 	}
 
 	const artistStyle = {
-		width: "90%",
-		paddingLeft: "10%",
-		paddingRight: "10%"
+		gridColumn: "1",
+		wordWrap: "break-word"
 	}
 
 	const countStyle = {
-		width: "10%",
-		paddingRight: "10%"
-
+		gridColumn: "2",
+		margin: "auto"
 	}
 
 	let style;
 	if (hover) {
 		style = {
-			display: "flex",
+			display: "grid",
+			gridTemplateColumns: "9fr 1fr",
 			fontSize: "26px",
 			backgroundColor: "#ffd",
-			height: "50px",
+			height: "fit-content",
 			width: "100%",
 			borderRadius: "15px",
-			marginTop: "15px",
 			boxShadow: "-5px 2px 15px 1px #805020",
 			border: "none",
 			textAlign: "center",
-			verticalAlign: "middle",
 			lineHeight: "50px",
 			outline: "0",
 			cursor: "pointer",
 		}
 	} else {
 			style = {
-				display: "flex",
+				display: "grid",
+				gridTemplateColumns: "9fr 1fr",
 				fontSize: "24px",
 				backgroundColor: "#fff",
 				height: "fit-content",
-				maxHeight: "100px",
 				width: "100%",
 				borderRadius: "15px",
-				marginTop: "15px",
 				boxShadow: "-5px 2px 15px 1px #805020",
 				border: "none",
 				textAlign: "center",
-				verticalAlign: "middle",
 				lineHeight: "50px",
 				outline: "0",
 		}
