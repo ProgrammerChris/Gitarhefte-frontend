@@ -20,8 +20,7 @@ const Artist = (props) => {
 	}
 
 	const countStyle = {
-		gridColumn: "2",
-		margin: "auto"
+		gridColumn: "2"
 	}
 
 	let style;
