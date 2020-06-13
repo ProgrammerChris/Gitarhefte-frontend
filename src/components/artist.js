@@ -16,6 +16,7 @@ const Artist = (props) => {
 
 	const artistStyle = {
 		gridColumn: "1",
+		paddingLeft: "10%",
 		wordWrap: "break-word"
 	}
 
