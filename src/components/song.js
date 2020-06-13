@@ -46,7 +46,7 @@ const Song = (props) => {
 
 	return (
 		<li style={listElementStyle}>
-			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => console.log(props.songName)} style={style}>
+			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => console.log(props.songName + " by " + props.artistName)} style={style}>
 				{props.songName}
 			</div>
 		</li>

@@ -18,6 +18,7 @@ const Songs = (props) => {
 						<Song
 							key={song}
 							songName={song}
+							artistName={artist}
 						/>
 					))}
 				</ul>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Artist from './artist'
-import {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 
 /* 
 	* Component handling search through the given JSON of artists with songs, and then showing the results. 
@@ -14,28 +14,27 @@ const Artists = (props) => {
 	const handleChange = event => {
 		setSearchTerm(event.target.value);
 	};
-	
+
 	const allArtists = Object.entries(props.artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load. 
-													 //! Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
+	//! Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
 
 	useEffect(() => {
 
 		// Finner artister som stemmer med søk
 		let artistHits = allArtists.filter((searchResults) => (
 			searchResults[0].toLowerCase().includes(searchTerm.toLowerCase())
-		)).map((artist)=> artist[0])
+		)).map((artist) => artist[0])
 
 		// Leter igjennom sanger for å se om noen sanger stemmer med søk, viss ja, vis artist.
 		let songHits = [];
-		for (let i = 0; i < allArtists.length; i++)	{
+		for (let i = 0; i < allArtists.length; i++) {
 			// JSON of artists, with array of songs for each artist. Very messy way of getting the songs...
 			let songs = Object.entries(allArtists[i][1])[0][1]
-			for (let j = 0; j < songs.length; j++)	{
-				if (songs[j].toLowerCase().includes(searchTerm.toLowerCase()))	{
+			for (let j = 0; j < songs.length; j++) {
+				if (songs[j].toLowerCase().includes(searchTerm.toLowerCase())) {
 					// Push the artist connected to the song that matched the search into the
 					songHits.push(allArtists[i][0])
 				}
-				
 			}
 		}
 
@@ -47,7 +46,7 @@ const Artists = (props) => {
 	}, [searchTerm]);
 
 	return (
-		<div style={{display: "grid", gridColumn:"2/5"}}>
+		<div style={{ display: "grid", gridColumn: "2/5" }}>
 			<input
 				id="search-input"
 				name="searchbar"
@@ -57,9 +56,9 @@ const Artists = (props) => {
 				placeholder="Artist eller sang"
 				value={searchTerm}
 				style={inputStyle} />
-			<ul style={{padding:"0px"}}>
+			<ul style={{ padding: "0px" }}>
 				{searchResults.map((artist) => (
-					<Artist 
+					<Artist
 						key={artist}
 						artistName={artist}
 						songs={props.artists[artist].songs} />
