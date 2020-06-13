@@ -1,22 +1,32 @@
 import React from 'react'
 import Song from './song'
+import { useParams } from 'react-router'
 
+
+// * Component containing a list of songs from a given artists list of songs.
+ 
 const Songs = (props) => {
+
+	const {artist} = useParams()
+
 	return (
-			<ul style={listStyle}>
-				{props.songs.map((song) => (
-					<Song
-						key={song}
-						songName={song}
-					/>
-				))}
-			</ul>
+			
+			<div style={listStyle}>
+				<h2 style={{color: "#622C06", textAlign:"center", fontSize:"40px", margin:"0px"}}>{artist}</h2>
+				<ul style={{padding:"0px"}}>
+					{props.artists[artist].songs.map((song) => (
+						<Song
+							key={song}
+							songName={song}
+						/>
+					))}
+				</ul>
+			</div>
 	)
 }
 
 const listStyle = {
-	padding: "0px",
-	gridRow: "2",
+	gridColumn: "2/5"
 }
 
 export default Songs;

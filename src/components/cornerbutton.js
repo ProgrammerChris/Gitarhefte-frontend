@@ -11,12 +11,8 @@ const CornerButton = () => {
 	let style;
 	if (hover) {
 		style = {
-			gridColumn: "4 / 5",
-            gridRow: "1",
-            alignSelf: "center", /* Add margin or padding to desktop version */
-            justifySelf: "end",
+            display:"flex",
             justifyContent: "center",
-            alignItems: "center",
             width: "55px",
             height: "55px",
             background: "#F7EADC",
@@ -31,12 +27,8 @@ const CornerButton = () => {
         }
 	} else {
         style = {
-            gridColumn: "4 / 5",
-            gridRow: "1",
-            alignSelf: "center", /* Add margin or padding to desktop version */
-            justifySelf: "end",
+            display:"flex",
             justifyContent: "center",
-            alignItems: "center",
             width: "50px",
             height: "50px",
             background: "#F7EADC",
@@ -51,9 +43,9 @@ const CornerButton = () => {
 	}
     
     return (
-        <button type="button" name="corner-button" onMouseOver={toggleHover} onMouseOut={unToggleHover} style={style}>
+        <div name="corner-button" onMouseOver={toggleHover} onMouseOut={unToggleHover} style={style}>
             <img alt="Hefte knapp" style={iconStyle} src={require("../img/booklet.svg")}/>
-        </button>
+        </div>
     ) 
 } 
 

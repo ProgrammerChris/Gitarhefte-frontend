@@ -1,6 +1,5 @@
-[
-    {
-        "artist": "Ed Sheeran",
+{
+    "Ed Sheeran": {
         "songs": [
             "Perfect",
             "Lego House",
@@ -8,24 +7,21 @@
             "Thinking out loud"
         ]
     },
-    {
-        "artist": "Linkin Park",
+    "Linkin Park":{
         "songs": [
             "Heavy",
             "Numb"
         ]
     },
-    {
-        "artist": "Disturbed",
+    "Disturbed": {
         "songs": [
             "The sound of silence",
             "A reason to fight"
         ]
     },
-    {
-        "artist": "Bon Jovi",
+    "Bon Jovi": {
         "songs": [
             "Always"
         ]
     }
-]
+}

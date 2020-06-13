@@ -11,8 +11,6 @@ const Song = (props) => {
 	let style;
 	if (hover) {
 		style = {
-			display: "flex",
-			gridTemplateColumns: "90vh 10vh",
 			fontSize: "26px",
 			backgroundColor: "#ffd",
 			height: "50px",
@@ -29,8 +27,6 @@ const Song = (props) => {
 		}
 	} else {
 			style = {
-				display: "flex",
-				gridTemplateColumns: "90vh 10vh",
 				fontSize: "24px",
 				backgroundColor: "#fff",
 				height: "50px",
@@ -48,19 +44,15 @@ const Song = (props) => {
 
 	return (
 		<li style={listElementStyle}>
-			<button type="button" onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => props.clicked()} style={style}>
-				<div style={songStyle}>{props.songName}</div>
-			</button>
+			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => console.log(props.songName)} style={style}>
+				{props.songName}
+			</div>
 		</li>
 	)
 }
 
 const listElementStyle = {
-	display: "grid"
-}
-
-const songStyle = {
-	width: "90%"
+	display: "grid",
 }
 
 export default Song;

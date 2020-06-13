@@ -1,17 +1,30 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Artist = (props) => {
-	//TODO: Make clickable, show list of songs from that artist.
 	const [hover, setHover] = useState(false);
 	
-	let toggleHover = () => setHover(true);
-	let unToggleHover = () => setHover(false);
+	const toggleHover = () => setHover(true);
+	const unToggleHover = () => setHover(false);
+
+	const listElementStyle = {
+		display: "grid",
+	}
+
+	const artistStyle = {
+		width: "90%",
+		paddingLeft: "10%"
+	}
+
+	const countStyle = {
+		width: "10%"
+
+	}
 
 	let style;
 	if (hover) {
 		style = {
 			display: "flex",
-			gridTemplateColumns: "90vh 10vh",
 			fontSize: "26px",
 			backgroundColor: "#ffd",
 			height: "50px",
@@ -29,7 +42,6 @@ const Artist = (props) => {
 	} else {
 			style = {
 				display: "flex",
-				gridTemplateColumns: "90vh 10vh",
 				fontSize: "24px",
 				backgroundColor: "#fff",
 				height: "50px",
@@ -47,29 +59,19 @@ const Artist = (props) => {
 
 	return (
 		<li style={listElementStyle}>
-			<button 
-				type="button" 
-				onMouseOver={toggleHover} 
-				onMouseOut={unToggleHover} 
-				onClick={()=> props.artistClicked()} 
-				style={style}>
-				<div style={artistStyle}>{props.artistName}</div><div style={countStyle}>{props.songCount}</div>
-			</button>
+			
+			<Link style={{textDecoration: "none", color: "black"}} to={`/${props.artistName}`}>
+				<div 
+					onMouseOver={toggleHover} 
+					onMouseOut={unToggleHover} 
+					style={style}>
+					<div style={artistStyle}>{props.artistName}</div><div style={countStyle}>{props.songs.length}</div>
+				</div>
+			</Link>
 		</li>
 	)
 }
 
-const listElementStyle = {
-	display: "grid"
-}
 
-const artistStyle = {
-	width: "90%"
-}
-
-const countStyle = {
-	width: "10%"
-
-}
 
 export default Artist;

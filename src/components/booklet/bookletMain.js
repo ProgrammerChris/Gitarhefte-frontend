@@ -1,9 +1,9 @@
 import React from 'react'
 
-const bookletMain = (props) => {
+const BookletMain = (props) => {
     return (
         <div style={style}>
-            <h1>Test</h1>
+            <h1>Booklet</h1>
             {/*TODO: Add input field for booklet name*/}
             <ul>
                 {/*TODO: Add songs to this list, together with deletebutton linked to delete the given list item
@@ -25,4 +25,4 @@ const style = {
     boxShadow: "-5px 2px 15px 1px #805020",
 }
 
-export default bookletMain;
+export default BookletMain;

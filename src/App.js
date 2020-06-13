@@ -1,18 +1,42 @@
 import React from "react";
-import TextLogo from './components/textLogo'
+import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import CornerButton from './components/cornerbutton';
-import ListView from "./components/listView";
+import BookletMain from "./components/booklet/bookletMain";
+import Artists from "./components/Artists";
+import Songs from "./components/songs"
+
+import data from './moch.json';  //TODO: Get JSON from API and store in localStorage
 
 const App = () => {
 
   return (
-    <React.StrictMode>
-      <TextLogo />
-      <CornerButton />
-      <ListView/>
-    </React.StrictMode>
+    <Router>
+      <Link style={ logoLinkStyle }to="/"><h1>Gitarhefte</h1></Link>
+      <Link style={ bookletLinkStyle } to="/booklet"><CornerButton /></Link>
+      <Routes>
+        <Route path="/" element={<Artists artists={data}/>}/>
+        <Route path="/:artist" element={<Songs artists={data} />} />
+        <Route path="booklet" element={<BookletMain/>} />
+      </Routes>
+    </Router>
   )
 }
+
+const bookletLinkStyle = {
+
+  textDecoration: "none",
+  gridColumn: "4",
+  gridRow: "1",
+  justifySelf: "end"
+}
+
+const logoLinkStyle = {
+  textDecoration: "none",
+  gridColumn: "2 / 4",
+  gridRow: "1",
+}
+
+
 
 
 export default App;
