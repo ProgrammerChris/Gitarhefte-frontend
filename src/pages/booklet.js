@@ -99,7 +99,6 @@ const inputStyle = {
     fontSize: "20px",
     fontWeight: "bold",
     outline: "none",
-    marginTop: "20px"
 }
 
 const listStyle = {

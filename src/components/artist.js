@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Artist = (props) => {
+const Artist = ({artistName, songs}) => {
 	const [hover, setHover] = useState(false);
 	
 	const toggleHover = () => setHover(true);
@@ -61,12 +61,12 @@ const Artist = (props) => {
 	return (
 		<li style={listElementStyle}>
 			
-			<Link style={{textDecoration: "none", color: "black"}} to={`/${props.artistName}`}>
+			<Link style={{textDecoration: "none", color: "black"}} to={`/${artistName}`}>
 				<div 
 					onMouseOver={toggleHover} 
 					onMouseOut={unToggleHover} 
 					style={style}>
-					<div style={artistStyle}>{props.artistName}</div><div style={countStyle}>{props.songs.length}</div>
+					<div style={artistStyle}>{artistName}</div><div style={countStyle}>{songs.length}</div>
 				</div>
 			</Link>
 		</li>

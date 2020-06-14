@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Song = (props) => {
+const Song = ({artistName, songName}) => {
 	//TODO: Add preview button
 	//TODO: Add "add to booklet" button
 	const [hover, setHover] = useState(false);
@@ -46,8 +46,8 @@ const Song = (props) => {
 
 	return (
 		<li style={listElementStyle}>
-			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => console.log(props.songName + " by " + props.artistName)} style={style}>
-				{props.songName}
+			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => console.log(songName + " by " + artistName)} style={style}>
+				{songName}
 			</div>
 		</li>
 	)

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react"
 import Artist from './artist'
-import { Outlet } from 'react-router-dom'
 
 /* 
 	* Component handling search through the given JSON of artists with songs, and then showing the results. 
 	* JSON to be fetched from API at the initial render of the app. Only request the list of songs if not already in local storage.
 */
 
-const Artists = (props) => {
+const Artists = ({artists}) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 
@@ -15,7 +14,7 @@ const Artists = (props) => {
 		setSearchTerm(event.target.value);
 	};
 
-	const allArtists = Object.entries(props.artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load. 
+	const allArtists = Object.entries(artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load. 
 	//! Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
 
 	useEffect(() => {
@@ -61,7 +60,7 @@ const Artists = (props) => {
 					<Artist
 						key={artist}
 						artistName={artist}
-						songs={props.artists[artist].songs} />
+						songs={artists[artist].songs} />
 				))}
 			</ul>
 		</div>
