@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 const Song = (props) => {
-    //TODO: Add preview button
-    //TODO: Add "add to booklet" button
+	//TODO: Add preview button
+	//TODO: Add "add to booklet" button
 	const [hover, setHover] = useState(false);
-	
+
 	let toggleHover = () => setHover(true);
 	let unToggleHover = () => setHover(false);
 
@@ -27,20 +27,20 @@ const Song = (props) => {
 			cursor: "pointer",
 		}
 	} else {
-			style = {
-				fontSize: "24px",
-				backgroundColor: "#fff",
-				height: "fit-content",
-				maxHeight: "100px",
-				width: "100%",
-				borderRadius: "15px",
-				marginTop: "15px",
-				boxShadow: "-5px 2px 15px 1px #805020",
-				border: "none",
-				textAlign: "center",
-				verticalAlign: "middle",
-				lineHeight: "50px",
-				outline: "0",
+		style = {
+			fontSize: "24px",
+			backgroundColor: "#fff",
+			height: "fit-content",
+			maxHeight: "100px",
+			width: "100%",
+			borderRadius: "15px",
+			marginTop: "15px",
+			boxShadow: "-5px 2px 15px 1px #805020",
+			border: "none",
+			textAlign: "center",
+			verticalAlign: "middle",
+			lineHeight: "50px",
+			outline: "0",
 		}
 	}
 

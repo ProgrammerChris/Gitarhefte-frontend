@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import CornerButton from './components/cornerbutton';
-import BookletMain from "./components/booklet/bookletMain";
+import Booklet from "./pages/booklet";
 import Artists from "./components/Artists";
 import Songs from "./components/songs"
 
@@ -16,7 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Artists artists={data}/>}/>
         <Route path="/:artist" element={<Songs artists={data} />} />
-        <Route path="booklet" element={<BookletMain/>} />
+        <Route path="booklet" element={<Booklet/>} />
       </Routes>
     </Router>
   )

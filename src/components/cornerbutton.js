@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-const CornerButton = () => {
+const CornerButton = (props) => {
     // TODO: Make booklet button on all pages except on booklet page. Make it search button on booklet page.
     const [hover, setHover] = useState(false);
-	
+    
 	let toggleHover = () => setHover(true);
 	let unToggleHover = () => setHover(false);
 
@@ -17,7 +17,7 @@ const CornerButton = () => {
             height: "55px",
             background: "#F7EADC",
             borderRadius: "50%",
-            marginTop: "20px",
+            marginTop: "30px",
             border: "none",
             cursor: "pointer",
             boxShadow: "-5px 2px 15px 1px #805020",
@@ -33,7 +33,7 @@ const CornerButton = () => {
             height: "50px",
             background: "#F7EADC",
             borderRadius: "50%",
-            marginTop: "20px",
+            marginTop: "30px",
             border: "none",
             boxShadow: "-5px 2px 15px 1px #805020",
         }
@@ -43,7 +43,7 @@ const CornerButton = () => {
 	}
     
     return (
-        <div name="corner-button" onMouseOver={toggleHover} onMouseOut={unToggleHover} style={style}>
+        <div className="corner-button" onMouseOver={toggleHover} onMouseOut={unToggleHover} style={style}>
             <img alt="Hefte knapp" style={iconStyle} src={require("../img/booklet.svg")}/>
         </div>
     ) 

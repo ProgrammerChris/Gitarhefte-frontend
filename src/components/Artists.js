@@ -64,7 +64,6 @@ const Artists = (props) => {
 						songs={props.artists[artist].songs} />
 				))}
 			</ul>
-			<Outlet />
 		</div>
 	)
 }

@@ -13,7 +13,7 @@ const Songs = (props) => {
 			
 			<div style={listStyle}>
 				<h2 style={{color: "#622C06", textAlign:"center", fontSize:"40px", margin:"0px"}}>{artist}</h2>
-				<ul style={{padding:"0px"}}>
+				<ul style={{padding:"0px", margin: "0px"}}>
 					{props.artists[artist].songs.map((song) => (
 						<Song
 							key={song}
