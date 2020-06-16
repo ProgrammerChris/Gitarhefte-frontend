@@ -44,12 +44,27 @@ const Song = ({artistName, songName}) => {
 		}
 	}
 
-	const addToBooklet = (artistName, songName) =>	{
-		let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
-		let newSong = {artistName: artistName, songName: songName}
-		if (!selectedSongs.includes(newSong)) {
-			selectedSongs.push(newSong)		
+	let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+
+	const isSongInList = (newSong) => {
+		for (let i = 0; i < selectedSongs.length; i++)	{
+			if (JSON.stringify(selectedSongs[i]) === JSON.stringify(newSong)) {
+				return true
+			}
 		}
+		return false
+	}
+
+	const addToBooklet = (artistName, songName) =>	{
+		let newSong = {artistName: artistName, songName: songName}
+		if (selectedSongs.length === 0) {
+			selectedSongs.push(newSong)
+		} else {
+			if (!isSongInList(newSong))	{
+				selectedSongs.push(newSong)
+			}
+		}
+
 		sessionStorage.setItem('booklet', JSON.stringify(selectedSongs))
 	}
 
