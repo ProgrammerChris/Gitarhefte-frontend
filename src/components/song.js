@@ -46,6 +46,7 @@ const Song = ({artistName, songName}) => {
 
 	let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
 
+	// Check if song already in booklet
 	const isSongInList = (newSong) => {
 		for (let i = 0; i < selectedSongs.length; i++)	{
 			if (JSON.stringify(selectedSongs[i]) === JSON.stringify(newSong)) {
@@ -55,11 +56,13 @@ const Song = ({artistName, songName}) => {
 		return false
 	}
 
+	// Add song to booklet
 	const addToBooklet = (artistName, songName) =>	{
 		let newSong = {artistName: artistName, songName: songName}
 		if (selectedSongs.length === 0) {
 			selectedSongs.push(newSong)
 		} else {
+			// See if song already in booklet
 			if (!isSongInList(newSong))	{
 				selectedSongs.push(newSong)
 			}

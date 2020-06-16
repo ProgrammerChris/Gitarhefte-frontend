@@ -1,13 +1,18 @@
 import React from 'react'
 
-const DeleteButton = (props) => {
+const DeleteButton = ({artist, song}) => {
     return (
         <div>
-            <button type="button" name="corner-button" style={style}>
-                <img alt="Hefte knapp" style={iconStyle} src={require("../../img/trash.svg")}/>
+            <button type="button" name="corner-button" style={style} onClick={(artist, song) => deleteSong(artist, song)}>
+                <img alt="Hefte knapp" style={iconStyle} src={require("../../../img/trash.svg")}/>
             </button>
         </div>
     )
+}
+
+const deleteSong = (artist, song) => {
+    sessionStorage.removeItem('booklet')
+    sessionStorage.setItem('booklet', '[]')
 }
 
 const style = {
@@ -29,4 +34,4 @@ const iconStyle = {
     //Change color in the SVG fill.
 }
 
-export default DeleteButton
+export default DeleteButton;

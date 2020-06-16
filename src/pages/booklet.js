@@ -22,10 +22,8 @@ const Booklet = (props) => {
             fontSize: "22px",
             height: "50px",
             outline: "none",
-            //width: "100%",
-            verticalAlign: "middle",
-            lineHeight: "50px",
-            cursor: "pointer"
+            cursor: "pointer",
+            width: "100%"
         }
     } else {
         buttonStyle = {
@@ -40,9 +38,7 @@ const Booklet = (props) => {
             fontSize: "20px",
             height: "50px",
             outline: "none",
-            //width: "100%",
-            verticalAlign: "middle",
-            lineHeight: "50px",
+            width: "100%"
         }
     }
 
@@ -50,7 +46,7 @@ const Booklet = (props) => {
     const selected = Array.from(JSON.parse(sessionStorage.getItem('booklet')));
 
     return (
-        <div style={{ display: "grid", gridColumn:"2/5"}}>
+        <div style={{ display: "grid", gridTemplateColumns:"auto 50% auto", gridColumn:"2/5"}}>
             <input
                 id="name-input"
                 name="bookletName"
@@ -61,7 +57,7 @@ const Booklet = (props) => {
             <ul style={listStyle}>
                 {selected.map((song) => <SelectedSong key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
             </ul>
-            <div style={buttonStyle} onMouseOver={toggleHover} onMouseOut={unToggleHover}>Last ned hefte</div>
+            <button style={buttonStyle} onMouseOver={toggleHover} onMouseOut={unToggleHover}>Last ned hefte</button>
         </div>
     )
 }
@@ -100,10 +96,9 @@ const listStyle = {
     maxHeight: "60vh",
     overflowY: "auto",
     overflowX: "hidden",
-    marginBottom: "50px",
     paddingTop: "15px",
     paddingBottom: "15px",
-    marginTop:"0px"
+    marginTop:"0px",
 }
 
 
