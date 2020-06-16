@@ -52,8 +52,6 @@ const SelectedSong = ({ artistName, songName }) => {
             </div>
         </li>
     )
-    //TODO: List element displaying artistname and song
-    //TODO: Integrated delete button
     //TODO: Make draggable (react-dnd)
 }
 
