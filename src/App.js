@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import CornerButton from './components/cornerbutton';
-import Booklet from "./pages/booklet";
+import Booklet from "./components/booklet/booklet";
 import Artists from "./components/Artists";
 import Songs from "./components/songs"
 

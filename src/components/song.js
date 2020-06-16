@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 
 const Song = ({artistName, songName}) => {
 	//TODO: Add preview button
-	//TODO: Add "add to booklet" button
+	//TODO: Add onClicked animation. Either by floating the component to the booklet button, or just change color on button on click.
 	const [hover, setHover] = useState(false);
 
 	let toggleHover = () => setHover(true);
 	let unToggleHover = () => setHover(false);
+	let clicked = () => {
+		setTimeout(() => toggleHover(), 100);
+		unToggleHover();
+	}
 
 	let style; 
 	if (hover) {
@@ -73,7 +77,7 @@ const Song = ({artistName, songName}) => {
 
 	return (
 		<li style={listElementStyle}>
-			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => addToBooklet(artistName, songName)} style={style}>
+			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => {addToBooklet(artistName, songName); clicked();}}  style={style}>
 				{songName}
 			</div>
 		</li>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import SelectedSong from '../components/booklet/selected/selectedSong';
+import SelectedSong from './selected/selectedSong';
 
-const Booklet = (props) => {
+const Booklet = ({setSelectedSongsList}) => {
 
     const [hover, setHover] = useState(false);
+    const [selectedSongs, setSelectedSongs] = useState(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
 
     let toggleHover = () => setHover(true);
     let unToggleHover = () => setHover(false);
@@ -42,9 +43,6 @@ const Booklet = (props) => {
         }
     }
 
-    
-    const selected = Array.from(JSON.parse(sessionStorage.getItem('booklet')));
-
     return (
         <div style={{ display: "grid", gridTemplateColumns:"auto 50% auto", gridColumn:"2/5"}}>
             <input
@@ -55,7 +53,7 @@ const Booklet = (props) => {
                 style={inputStyle} />
             <div style={textStyle}>Valgte sanger</div>
             <ul style={listStyle}>
-                {selected.map((song) => <SelectedSong key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
+                {selectedSongs.map((song) => <SelectedSong key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
             </ul>
             <button style={buttonStyle} onMouseOver={toggleHover} onMouseOut={unToggleHover}>Last ned hefte</button>
         </div>

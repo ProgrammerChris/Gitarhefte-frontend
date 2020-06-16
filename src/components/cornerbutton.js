@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const CornerButton = (props) => {
+const CornerButton = () => {
     // TODO: Make booklet button on all pages except on booklet page. Make it search button on booklet page.
     const [hover, setHover] = useState(false);
     
