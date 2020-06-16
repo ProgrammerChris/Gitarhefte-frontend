@@ -38,10 +38,13 @@ const SelectedSong = ({ artistName, songName }) => {
         }
     }
 
-
     return (
         <li style={{display:"grid", marginLeft:"20px", marginRight:"20px"}}>
-            <div style={style} onMouseOver={toggleHover} onMouseOut={unToggleHover}>{songName} by {artistName}</div>
+            <div style={style} 
+            onMouseOver={toggleHover} 
+            onMouseOut={unToggleHover}>
+                {songName} by {artistName}
+            </div>
         </li>
     )
     //TODO: List element displaying artistname and song

@@ -8,7 +8,7 @@ const Song = ({artistName, songName}) => {
 	let toggleHover = () => setHover(true);
 	let unToggleHover = () => setHover(false);
 
-	let style; //! MinMax height for long song names
+	let style; 
 	if (hover) {
 		style = {
 			fontSize: "26px",
@@ -44,9 +44,18 @@ const Song = ({artistName, songName}) => {
 		}
 	}
 
+	const addToBooklet = (artistName, songName) =>	{
+		let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+		let newSong = {artistName: artistName, songName: songName}
+		if (!selectedSongs.includes(newSong)) {
+			selectedSongs.push(newSong)		
+		}
+		sessionStorage.setItem('booklet', JSON.stringify(selectedSongs))
+	}
+
 	return (
 		<li style={listElementStyle}>
-			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => console.log(songName + " by " + artistName)} style={style}>
+			<div onMouseOver={toggleHover} onMouseOut={unToggleHover} onClick={() => addToBooklet(artistName, songName)} style={style}>
 				{songName}
 			</div>
 		</li>

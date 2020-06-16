@@ -9,6 +9,8 @@ import data from './moch.json';  //TODO: Get JSON from API and store in localSto
 
 const App = () => {
 
+  sessionStorage.setItem('booklet', '[]')
+
   return (
     <Router>
       <Link style={ logoLinkStyle }to="/"><h1>Gitarhefte</h1></Link>

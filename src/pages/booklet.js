@@ -16,11 +16,15 @@ const Booklet = (props) => {
             display: "block",
             borderRadius: "15px",
             border: "none",
+            backgroundColor: "#fff",
             textAlign: "center",
             boxShadow: "-5px 2px 15px 1px #805020",
             fontSize: "22px",
             height: "50px",
             outline: "none",
+            //width: "100%",
+            verticalAlign: "middle",
+            lineHeight: "50px",
             cursor: "pointer"
         }
     } else {
@@ -30,14 +34,20 @@ const Booklet = (props) => {
             display: "block",
             borderRadius: "15px",
             border: "none",
+            backgroundColor: "#fff",
             textAlign: "center",
             boxShadow: "-5px 2px 15px 1px #805020",
             fontSize: "20px",
             height: "50px",
             outline: "none",
-            width: "100%"
+            //width: "100%",
+            verticalAlign: "middle",
+            lineHeight: "50px",
         }
     }
+
+    
+    const selected = Array.from(JSON.parse(sessionStorage.getItem('booklet')));
 
     return (
         <div style={{ display: "grid", gridColumn:"2/5"}}>
@@ -49,30 +59,9 @@ const Booklet = (props) => {
                 style={inputStyle} />
             <div style={textStyle}>Valgte sanger</div>
             <ul style={listStyle}>
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
-                <SelectedSong artistName="test" songName="fuck" />
+                {selected.map((song) => <SelectedSong key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
             </ul>
-            <button style={buttonStyle} onMouseOver={toggleHover} onMouseOut={unToggleHover}>Last ned hefte</button>
+            <div style={buttonStyle} onMouseOver={toggleHover} onMouseOut={unToggleHover}>Last ned hefte</div>
         </div>
     )
 }
@@ -113,6 +102,7 @@ const listStyle = {
     overflowX: "hidden",
     marginBottom: "50px",
     paddingTop: "15px",
+    paddingBottom: "15px",
     marginTop:"0px"
 }
 
