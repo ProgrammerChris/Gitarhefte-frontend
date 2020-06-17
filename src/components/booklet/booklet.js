@@ -3,54 +3,28 @@ import SelectedSong from './selected/selectedSong';
 
 const Booklet = () => {
 
-    const [hover, setHover] = useState(false);
     const [listChanged, setListChanged] = useState(false);
     const [selectedSongs, setSelectedSongs] = useState(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
 
-    const isListChanged = () => {
-        setListChanged(true)
-    }
-
-    let toggleHover = () => setHover(true);
-    let unToggleHover = () => setHover(false);
-
     useEffect(() => {
-        setSelectedSongs(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
-        setListChanged(false)
+        setSelectedSongs(Array.from(JSON.parse(sessionStorage.getItem('booklet')))) // Update the list of selected songs
+        setListChanged(false) // Set the changed to false so that it can see if another change has been done.
     }, [listChanged])
 
-    let buttonStyle;
-    if (hover) {
-        buttonStyle = {
-            gridRow: "4",
-            gridColumn: "2/3",
-            display: "block",
-            borderRadius: "15px",
-            border: "none",
-            backgroundColor: "#fff",
-            textAlign: "center",
-            boxShadow: "-5px 2px 15px 1px #805020",
-            fontSize: "22px",
-            height: "50px",
-            outline: "none",
-            cursor: "pointer",
-            width: "100%"
-        }
-    } else {
-        buttonStyle = {
-            gridRow: "4",
-            gridColumn: "2/3",
-            display: "block",
-            borderRadius: "15px",
-            border: "none",
-            backgroundColor: "#fff",
-            textAlign: "center",
-            boxShadow: "-5px 2px 15px 1px #805020",
-            fontSize: "20px",
-            height: "50px",
-            outline: "none",
-            width: "100%"
-        }
+    const buttonStyle = {
+        gridRow: "4",
+        gridColumn: "2/3",
+        display: "block",
+        borderRadius: "15px",
+        border: "none",
+        backgroundColor: "#fff",
+        textAlign: "center",
+        boxShadow: "-5px 2px 15px 1px #805020",
+        fontSize: "20px",
+        height: "50px",
+        outline: "none",
+        width: "100%",
+        cursor: "pointer",
     }
 
     return (
@@ -63,9 +37,9 @@ const Booklet = () => {
                 style={inputStyle} />
             <div style={textStyle}>Valgte sanger</div>
             <ul style={listStyle}>
-                {selectedSongs.map((song) => <SelectedSong isListChanged={() => isListChanged()}key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
+                {selectedSongs.map((song) => <SelectedSong isListChanged={() => setListChanged(true)} key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
             </ul>
-            <button style={buttonStyle} onMouseOver={toggleHover} onMouseOut={unToggleHover}>Last ned hefte</button>
+            <button style={buttonStyle} >Last ned hefte</button>
         </div>
     )
 }
