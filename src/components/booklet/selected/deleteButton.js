@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const DeleteButton = ({ artist, song }) => {
+const DeleteButton = ({updateList, artist, song }) => {
 
     const [hover, setHover] = useState(false);
 
@@ -53,7 +53,7 @@ const DeleteButton = ({ artist, song }) => {
     return (
         <div onMouseOver={toggleHover}
             onMouseOut={unToggleHover}>
-            <button type="button" name="corner-button" style={style} onClick={() => deleteSong(artistName, songName)}>
+            <button type="button" name="corner-button" style={style} onClick={() => {deleteSong(artistName, songName); updateList()}}>
                 <img alt="Hefte knapp" style={iconStyle} src={require("../../../img/trash.svg")} />
             </button>
         </div>

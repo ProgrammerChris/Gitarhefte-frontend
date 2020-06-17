@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DeleteButton from './deleteButton';
 
-const SelectedSong = ({ artistName, songName }) => {
+const SelectedSong = ({ isListChanged, artistName, songName }) => {
 
     const [hover, setHover] = useState(false);
 
@@ -48,7 +48,7 @@ const SelectedSong = ({ artistName, songName }) => {
                 {songName} by {artistName}
             </div>
             <div style={{display: "grid", justifySelf: "center", marginRight: "5px"}}>
-                <DeleteButton artist={artistName} song={songName} />
+                <DeleteButton updateList={() => isListChanged(true)} artist={artistName} song={songName} />
             </div>
         </li>
     )
