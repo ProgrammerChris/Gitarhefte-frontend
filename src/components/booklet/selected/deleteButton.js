@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 const DeleteButton = ({ updateList, artist, song }) => {
     const artistName = artist;
@@ -8,7 +8,6 @@ const DeleteButton = ({ updateList, artist, song }) => {
         let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
         let songToDelete = { artistName: artistName, songName: songName }
         let newSelectedSongsList = selectedSongs.filter((song) => JSON.stringify(songToDelete) !== JSON.stringify(song));
-        sessionStorage.removeItem('booklet')
         if (newSelectedSongsList.length === 0) {
             sessionStorage.setItem('booklet', '[]') //Set list as empty if no items in it.
         } else {

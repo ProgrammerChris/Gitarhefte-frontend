@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+
 const Song = ({artistName, songName}) => {
 	//TODO: Add preview button
 	//TODO: Add onClicked animation. Either by floating the component to the booklet button, or just change color on button on click.
@@ -21,7 +23,11 @@ const Song = ({artistName, songName}) => {
 		cursor: "pointer",
 	}
 
-	let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+	const listElementStyle = {
+		display: "grid",
+	}
+
+	
 
 	// Check if song already in booklet
 	const isSongInList = (newSong) => {
@@ -35,30 +41,24 @@ const Song = ({artistName, songName}) => {
 
 	// Add song to booklet
 	const addToBooklet = (artistName, songName) =>	{
-		let newSong = {artistName: artistName, songName: songName}
-		if (selectedSongs.length === 0) {
+		selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+		const newSong = {artistName: artistName, songName: songName}
+		// See if song already in booklet
+		if (!isSongInList(newSong))	{
 			selectedSongs.push(newSong)
-		} else {
-			// See if song already in booklet
-			if (!isSongInList(newSong))	{
-				selectedSongs.push(newSong)
-			}
 		}
-
 		sessionStorage.setItem('booklet', JSON.stringify(selectedSongs))
 	}
 
 	return (
 		<li style={listElementStyle}>
-			<button onClick={() => addToBooklet(artistName, songName)}  style={style}>
+			<button onClick={() => addToBooklet(artistName, songName)} style={style}>
 				{songName}
 			</button>
 		</li>
 	)
 }
 
-const listElementStyle = {
-	display: "grid",
-}
+
 
 export default Song;
