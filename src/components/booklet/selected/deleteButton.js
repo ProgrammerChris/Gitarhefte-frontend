@@ -5,6 +5,7 @@ const DeleteButton = ({ updateList, artist, song }) => {
     const songName = song;
 
     const deleteSong = (artistName, songName) => {
+        
         let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
         let songToDelete = { artistName: artistName, songName: songName }
         let newSelectedSongsList = selectedSongs.filter((song) => JSON.stringify(songToDelete) !== JSON.stringify(song));

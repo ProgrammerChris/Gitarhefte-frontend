@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import SelectedSong from './selected/selectedSong';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+import arrayMove from 'array-move';
 
 const Booklet = () => {
-
-    const [listChanged, setListChanged] = useState(false);
+    const [songDeleted, setSongDeleted] = useState(false);
     const [selectedSongs, setSelectedSongs] = useState(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
 
     useEffect(() => {
         setSelectedSongs(Array.from(JSON.parse(sessionStorage.getItem('booklet')))) // Update the list of selected songs
-        setListChanged(false) // Set the changed to false so that it can see if another change has been done.
-    }, [listChanged])
+        setSongDeleted(false) // Set the changed to false so that it can see if another change has been done.
+    }, [songDeleted])
+
+    const SortableItem = SortableElement(({ song }) =>
+        <SelectedSong isSongDeleted={() => setSongDeleted(true)} songName={song['songName']} artistName={song['artistName']} />
+    );
+
+    const SortableList = SortableContainer(({ songs }) => {
+
+        return (
+            <ul style={listStyle}>
+                {songs.map((song, index) => (
+                    <SortableItem key={(song['songName'] + song['artistName']).replace(/\s/g, '')} index={index} song={song} />
+                ))}
+            </ul>
+        );
+    });
+
+    const onSortEnd = ({ oldIndex, newIndex }) => {
+        setSelectedSongs(arrayMove(selectedSongs, oldIndex, newIndex))
+    };
 
     const buttonStyle = {
         gridRow: "4",
@@ -28,7 +48,8 @@ const Booklet = () => {
     }
 
     return (
-        <div style={{ display: "grid", gridTemplateColumns:"auto 50% auto", gridColumn:"2/5"}}>
+
+        <div style={{ display: "grid", gridTemplateColumns: "auto 50% auto", gridColumn: "2/5" }}>
             <input
                 id="name-input"
                 name="bookletName"
@@ -36,20 +57,18 @@ const Booklet = () => {
                 placeholder="Hefte navn"
                 style={inputStyle} />
             <div style={textStyle}>Valgte sanger</div>
-            <ul style={listStyle}>
-                {selectedSongs.map((song) => <SelectedSong isListChanged={() => setListChanged(true)} key={song['songName']+song['artistName']} songName={song['songName']} artistName={song['artistName']}/>)}
-            </ul>
+            <SortableList songs={selectedSongs} onSortEnd={onSortEnd}></SortableList>
             <button style={buttonStyle} >Last ned hefte</button>
         </div>
     )
 }
 
 const textStyle = {
-    gridRow:"2", 
-    gridColumn:"2/3", 
-    textAlign:"center", 
-    marginTop:"15px", 
-    fontSize:"26px",
+    gridRow: "2",
+    gridColumn: "2/3",
+    textAlign: "center",
+    marginTop: "15px",
+    fontSize: "26px",
     fontWeight: "Bold",
     color: "#622C06"
 }
@@ -80,7 +99,7 @@ const listStyle = {
     overflowX: "hidden",
     paddingTop: "15px",
     paddingBottom: "15px",
-    marginTop:"0px",
+    marginTop: "0px",
 }
 
 

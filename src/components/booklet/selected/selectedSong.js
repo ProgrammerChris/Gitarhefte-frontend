@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DeleteButton from './deleteButton';
 
-const SelectedSong = ({ isListChanged, artistName, songName }) => {
+const SelectedSong = ({ isSongDeleted, artistName, songName}) => {
 
     const style = {
         fontSize: "24px",
@@ -19,12 +19,12 @@ const SelectedSong = ({ isListChanged, artistName, songName }) => {
     }
 
     return (
-        <li style={{display:"grid", gridTemplateColumns:"95% 5%", gridColumnGap:"minmax(5px, 7px)", marginLeft:"20px", marginRight:"20px"}}>
+        <li style={{ display: "grid", gridTemplateColumns: "95% 5%", gridColumnGap: "minmax(5px, 7px)", marginLeft: "20px", marginRight: "20px" }}>
             <div style={style}>
                 {songName} by {artistName}
             </div>
-            <div style={{display: "grid", justifySelf: "center", marginRight: "5px"}}>
-                <DeleteButton updateList={() => isListChanged(true)} artist={artistName} song={songName} />
+            <div style={{ display: "grid", justifySelf: "center", marginRight: "5px" }}>
+                <DeleteButton updateList={() => isSongDeleted(true)} artist={artistName} song={songName} />
             </div>
         </li>
     )

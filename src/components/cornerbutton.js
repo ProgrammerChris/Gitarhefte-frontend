@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 const CornerButton = () => {
     // TODO: Make booklet button on all pages except on booklet page. Make it search button on booklet page.
