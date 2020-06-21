@@ -1,6 +1,13 @@
 import React from 'react'
 
-let selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+let selectedSongs;
+
+if (sessionStorage.getItem('booklet'))	{
+	selectedSongs = Array.from(JSON.parse(sessionStorage.getItem('booklet')))
+} else {
+	selectedSongs = [];
+}
+ 
 
 const Song = ({artistName, songName}) => {
 	//TODO: Add preview button

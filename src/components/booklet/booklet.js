@@ -21,14 +21,16 @@ const Booklet = () => {
         return (
             <ul style={listStyle}>
                 {songs.map((song, index) => (
-                    <SortableItem key={(song['songName'] + song['artistName']).replace(/\s/g, '')} index={index} song={song} />
+                    <SortableItem key={`id`+index} index={index} song={song} />
                 ))}
             </ul>
         );
     });
 
     const onSortEnd = ({ oldIndex, newIndex }) => {
-        setSelectedSongs(arrayMove(selectedSongs, oldIndex, newIndex))
+        const newSelectedSongs = arrayMove(selectedSongs, oldIndex, newIndex)
+        setSelectedSongs(newSelectedSongs)
+        sessionStorage.setItem('booklet', JSON.stringify(newSelectedSongs))
     };
 
     const buttonStyle = {

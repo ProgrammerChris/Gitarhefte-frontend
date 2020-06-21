@@ -9,7 +9,10 @@ import data from './moch.json';  //TODO: Get JSON from API and store in localSto
 
 const App = () => {
 
-  sessionStorage.setItem('booklet', '[]')
+  if (!sessionStorage.getItem('booklet')) {
+    console.log("added");
+    sessionStorage.setItem('booklet', '[]')
+  }
 
   return (
     <Router>
