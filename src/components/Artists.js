@@ -6,7 +6,7 @@ import Artist from './artist'
 	* JSON to be fetched from API at the initial render of the app. Only request the list of songs if not already in local storage.
 */
 
-const Artists = ({artists}) => {
+const Artists = ({ artists }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 
@@ -18,7 +18,6 @@ const Artists = ({artists}) => {
 	//! Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
 
 	useEffect(() => {
-
 		// Finner artister som stemmer med søk
 		let artistHits = allArtists.filter((searchResults) => (
 			searchResults[0].toLowerCase().includes(searchTerm.toLowerCase())
@@ -42,6 +41,7 @@ const Artists = ({artists}) => {
 
 		let resultsAsSet = new Set(results) // Converting the array to set for unique items on list. // ? Should this be set as a Set at the start instead of converting here?
 		setSearchResults(Array.from(resultsAsSet))
+
 	}, [searchTerm]);
 
 	return (

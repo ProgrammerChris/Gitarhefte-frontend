@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import CornerButton from './components/cornerbutton';
 import Booklet from "./components/booklet/booklet";
@@ -9,8 +9,10 @@ import data from './moch.json';  //TODO: Get JSON from API and store in localSto
 
 const App = () => {
 
+  // TODO: Make cornerbutton booklet on all pages except on booklet page. Make it search button on booklet page.
+
+  // Add empty array at first page load. Ready to be filled with selected songs.
   if (!sessionStorage.getItem('booklet')) {
-    console.log("added");
     sessionStorage.setItem('booklet', '[]')
   }
 

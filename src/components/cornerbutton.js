@@ -1,8 +1,7 @@
 import React from "react";
 
 const CornerButton = () => {
-    // TODO: Make booklet button on all pages except on booklet page. Make it search button on booklet page.
-
+    
     const iconStyle = {
         width: "25px"
     }
@@ -22,7 +21,7 @@ const CornerButton = () => {
     }
     
     return (
-        <button className="corner-button" style={style}>
+        <button className="corner-button" style={style} onClick={() => console.log(window.location.href)}>
             <img alt="Hefte knapp" style={iconStyle} src={require("../img/booklet.svg")}/>
         </button>
     ) 
