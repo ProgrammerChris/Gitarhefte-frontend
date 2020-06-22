@@ -4,107 +4,6 @@ import arrayMove from 'array-move';
 
 const Booklet = () => {
 
-    const textStyle = {
-        gridRow: "2",
-        gridColumn: "1/4",
-        textAlign: "center",
-        marginTop: "15px",
-        fontSize: "26px",
-        fontWeight: "Bold",
-        color: "#622C06"
-    }
-
-    const inputStyle = {
-        gridRow: "1",
-        gridColumn: "1/4",
-        backgroundColor: "#fff",
-        height: "50px",
-        border: "none",
-        textAlign: "center",
-        borderRadius: "15px",
-        boxShadow: "-5px 2px 15px 1px #805020",
-        fontSize: "20px",
-        fontWeight: "bold",
-        outline: "none",
-    }
-
-    const songListStyle = {
-        display: "grid",
-        gridRowGap: "20px",
-        gridRow: "3",
-        padding: "0px",
-        paddingTop: "15px",
-        paddingBottom: "15px",
-        marginTop: "0px",
-    }
-
-    const buttonListStyle = {
-        display: "grid",
-        gridRowGap: "20px",
-        gridRow: "3",
-        padding: "0px",
-        paddingTop: "15px",
-        paddingBottom: "15px",
-        marginTop: "0px",
-        paddingLeft: "20px"
-    }
-
-    const listElementStyle = {
-        display: "grid",
-        marginLeft: "20px",
-        marginRight: "30px",
-        cursor: "move"
-    }
-
-    const style = {
-        fontSize: "24px",
-        backgroundColor: "#fff",
-        height: "fit-content",
-        maxHeight: "100px",
-        borderRadius: "15px",
-        boxShadow: "-5px 2px 15px 1px #805020",
-        border: "none",
-        textAlign: "center",
-        lineHeight: "50px",
-        paddingLeft: "10px",
-        paddingRight: "10px",
-        width: "100%",
-        userSelect: "none"
-    }
-
-    const deleteStyle = {
-        gridColumn: "2",
-        justifySelf: "center",
-        marginRight: "10px",
-        width: "45px",
-        height: "45px",
-        backgroundColor: "#622C06",
-        borderRadius: "50%",
-        border: "none",
-        cursor: "pointer",
-        boxShadow: "-5px 2px 15px 1px #805020",
-        outline: "none"
-    }
-    const iconStyle = {
-        width: "25px",
-        //Change color in the SVG fill.
-    }
-
-    const buttonStyle = {
-        gridRow: "4",
-        gridColumn: "2",
-        display: "inline-block",
-        borderRadius: "15px",
-        border: "none",
-        backgroundColor: "#fff",
-        textAlign: "center",
-        boxShadow: "-5px 2px 15px 1px #805020",
-        fontSize: "20px",
-        height: "50px",
-        outline: "none",
-        cursor: "pointer",
-    }
-
     const [selectedSongs, setSelectedSongs] = useState(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
 
     const SortableItem = SortableElement(({ song, index }) =>
@@ -116,7 +15,7 @@ const Booklet = () => {
     );
 
     const SortableList = SortableContainer(({ songs }) => {
-        if (songs.length != 0) {
+        if (songs.length > 0) {
             return (
                 <ul style={songListStyle}>
                     {songs.map((song, index) => (<SortableItem key={`id-${index}`} index={index} song={song} />))}
@@ -172,6 +71,107 @@ const Booklet = () => {
             <button style={buttonStyle}>Last ned hefte</button>
         </div>
     )
+}
+
+const textStyle = {
+    gridRow: "2",
+    gridColumn: "1/4",
+    textAlign: "center",
+    marginTop: "15px",
+    fontSize: "26px",
+    fontWeight: "Bold",
+    color: "#622C06"
+}
+
+const inputStyle = {
+    gridRow: "1",
+    gridColumn: "1/4",
+    backgroundColor: "#fff",
+    height: "50px",
+    border: "none",
+    textAlign: "center",
+    borderRadius: "15px",
+    boxShadow: "-5px 2px 15px 1px #805020",
+    fontSize: "20px",
+    fontWeight: "bold",
+    outline: "none",
+}
+
+const songListStyle = {
+    display: "grid",
+    gridRowGap: "20px",
+    gridRow: "3",
+    padding: "0px",
+    paddingTop: "15px",
+    paddingBottom: "15px",
+    marginTop: "0px",
+}
+
+const buttonListStyle = {
+    display: "grid",
+    gridRowGap: "20px",
+    gridRow: "3",
+    padding: "0px",
+    paddingTop: "15px",
+    paddingBottom: "15px",
+    marginTop: "0px",
+    paddingLeft: "20px"
+}
+
+const listElementStyle = {
+    display: "grid",
+    marginLeft: "20px",
+    marginRight: "30px",
+    cursor: "move"
+}
+
+const style = {
+    fontSize: "24px",
+    backgroundColor: "#fff",
+    height: "fit-content",
+    maxHeight: "100px",
+    borderRadius: "15px",
+    boxShadow: "-5px 2px 15px 1px #805020",
+    border: "none",
+    textAlign: "center",
+    lineHeight: "50px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    width: "100%",
+    userSelect: "none"
+}
+
+const deleteStyle = {
+    gridColumn: "2",
+    justifySelf: "center",
+    marginRight: "10px",
+    width: "45px",
+    height: "45px",
+    backgroundColor: "#622C06",
+    borderRadius: "50%",
+    border: "none",
+    cursor: "pointer",
+    boxShadow: "-5px 2px 15px 1px #805020",
+    outline: "none"
+}
+const iconStyle = {
+    width: "25px",
+    //Change color in the SVG fill.
+}
+
+const buttonStyle = {
+    gridRow: "4",
+    gridColumn: "2",
+    display: "inline-block",
+    borderRadius: "15px",
+    border: "none",
+    backgroundColor: "#fff",
+    textAlign: "center",
+    boxShadow: "-5px 2px 15px 1px #805020",
+    fontSize: "20px",
+    height: "50px",
+    outline: "none",
+    cursor: "pointer",
 }
 
 export default Booklet;
