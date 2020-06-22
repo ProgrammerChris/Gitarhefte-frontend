@@ -102,7 +102,6 @@ const Booklet = () => {
         fontSize: "20px",
         height: "50px",
         outline: "none",
-        width: "fit-content",
         cursor: "pointer",
     }
 
