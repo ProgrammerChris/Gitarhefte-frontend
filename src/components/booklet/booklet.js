@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 
@@ -33,9 +33,6 @@ const Booklet = () => {
         gridRowGap: "20px",
         gridRow: "3",
         padding: "0px",
-        maxHeight: "60vh",
-        overflowY: "auto",
-        overflowX: "hidden",
         paddingTop: "15px",
         paddingBottom: "15px",
         marginTop: "0px",
@@ -46,9 +43,6 @@ const Booklet = () => {
         gridRowGap: "20px",
         gridRow: "3",
         padding: "0px",
-        maxHeight: "60vh",
-        overflowY: "auto",
-        overflowX: "hidden",
         paddingTop: "15px",
         paddingBottom: "15px",
         marginTop: "0px",
@@ -59,7 +53,7 @@ const Booklet = () => {
         display: "grid",
         marginLeft: "20px",
         marginRight: "30px",
-
+        cursor: "move"
     }
 
     const style = {
@@ -74,7 +68,8 @@ const Booklet = () => {
         lineHeight: "50px",
         paddingLeft: "10px",
         paddingRight: "10px",
-        width: "100%"
+        width: "100%",
+        userSelect: "none"
     }
 
     const deleteStyle = {
@@ -122,12 +117,19 @@ const Booklet = () => {
     );
 
     const SortableList = SortableContainer(({ songs }) => {
-
-        return (
+        if (songs.length != 0) {
+            return (
+                <ul style={songListStyle}>
+                    {songs.map((song, index) => (<SortableItem key={`id-${index}`} index={index} song={song} />))}
+                </ul>
+            );
+        } else {
+            return (
             <ul style={songListStyle}>
-                {songs.map((song, index) => (<SortableItem key={`id-${index}`} index={index} song={song} />))}
+                <li style={{display:"grid", gridColumn: "2", fontSize:"24px"}}>{'Ingen sanger valgt!'}</li>
             </ul>
-        );
+            );
+        }
     });
 
     const deleteButtons = (song, index) =>
@@ -140,11 +142,11 @@ const Booklet = () => {
     const remove = (song) => {
         const index = selectedSongs.indexOf(song);
         if (index > -1) {
-          selectedSongs.splice(index, 1);
+            selectedSongs.splice(index, 1);
         }
         sessionStorage.setItem('booklet', JSON.stringify(selectedSongs))
         setSelectedSongs(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
-        
+
     }
 
     const onSortEnd = ({ oldIndex, newIndex }) => {

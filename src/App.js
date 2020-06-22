@@ -28,16 +28,16 @@ const App = () => {
 }
 
 const bookletLinkStyle = {
-
   textDecoration: "none",
   gridColumn: "4",
   gridRow: "1",
-  justifySelf: "end"
+  justifySelf: "end",
 }
 
 const logoLinkStyle = {
+  justifySelf: "start",
   textDecoration: "none",
-  gridColumn: "2 / 4",
+  gridColumn: "2",
   gridRow: "1",
 }
 
