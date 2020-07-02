@@ -1,6 +1,6 @@
 import React from "react";
 
-const CornerButton = () => {
+const CornerButton = ({bookletOpen}) => {
     
     const iconStyle = {
         width: "25px"
@@ -21,8 +21,8 @@ const CornerButton = () => {
     }
     
     return (
-        <button className="corner-button" style={style} onClick={() => console.log(window.location.href)}>
-            <img alt="Hefte knapp" style={iconStyle} src={require("../img/booklet.svg")}/>
+        <button className="corner-button" style={style}>
+            <img alt="Hefte knapp" style={iconStyle} src={bookletOpen ? require("../img/magnifying_glass_icon.svg") : require("../img/booklet.svg")}/>
         </button>
     ) 
 } 

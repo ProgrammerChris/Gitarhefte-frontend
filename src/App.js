@@ -9,6 +9,8 @@ import data from './moch.json';  //TODO: Get JSON from API and store in localSto
 
 const App = () => {
 
+  const [bookletOpen, setBookletOpen] = useState(false)
+
   // TODO: Make cornerbutton booklet on all pages except on booklet page. Make it search button on booklet page.
 
   // Add empty array at first page load. Ready to be filled with selected songs.
@@ -19,7 +21,15 @@ const App = () => {
   return (
     <Router>
       <Link style={logoLinkStyle} to="/"><h1>Gitarhefte</h1></Link>
-      <Link style={bookletLinkStyle} to="/booklet"><CornerButton /></Link>
+      <Link 
+      style={bookletLinkStyle} 
+      to={{
+        pathname: bookletOpen ? "/" : "/booklet"
+        }}
+      onClick={_ => setBookletOpen(!bookletOpen)}
+      >
+      <CornerButton bookletOpen={bookletOpen}/>
+      </Link>
       <Routes>
         <Route path="/" element={<Artists artists={data} />} />
         <Route path="/:artist" element={<Songs artists={data} />} />
