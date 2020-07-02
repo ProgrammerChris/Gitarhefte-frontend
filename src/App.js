@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <Router>
-      <Link style={logoLinkStyle} to="/"><h1>Gitarhefte</h1></Link>
+      <Link style={logoLinkStyle} to="/" onClick={_ => setBookletOpen(false)}><h1>Gitarhefte</h1></Link>
       <Link 
       style={bookletLinkStyle} 
       to={{

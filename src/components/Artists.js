@@ -52,7 +52,7 @@ const Artists = ({ artists }) => {
 				type="text"
 				autoComplete="on"
 				onChange={handleChange}
-				placeholder="Artist eller sang"
+				placeholder="Søk etter sang eller artist"
 				value={searchTerm}
 				style={inputStyle} />
 			<ul style={{ padding: "0px" }}>
