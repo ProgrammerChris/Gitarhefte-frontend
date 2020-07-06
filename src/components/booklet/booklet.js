@@ -24,7 +24,7 @@ const Booklet = () => {
         } else {
             return (
             <ul style={songListStyle}>
-                <li style={{display:"grid", gridColumn: "2", fontSize:"24px"}}>{'Ingen sanger valgt!'}</li>
+                <li style={{display:"inline-grid", fontSize:"24px", justifyContent: "center"}}><h4>Ingen sanger valgt!</h4></li>
             </ul>
             );
         }
@@ -61,7 +61,7 @@ const Booklet = () => {
                 type="text"
                 placeholder="Hefte navn"
                 style={inputStyle} />
-            <div style={textStyle}>Valgte sanger</div>
+            <div style={textStyle}><h3>Valgte sanger</h3></div>
             <div id="list" style={{ display: "grid", gridRow: "3", gridColumn: "1/4", gridTemplateColumns: "6fr auto", gridTemplateRows: "1" }}>
                 <SortableList songs={selectedSongs} onSortEnd={onSortEnd}></SortableList>
                 <ul style={buttonListStyle}>
@@ -100,7 +100,6 @@ const inputStyle = {
 const songListStyle = {
     display: "grid",
     gridRowGap: "20px",
-    gridRow: "3",
     padding: "0px",
     paddingTop: "15px",
     paddingBottom: "15px",
