@@ -24,7 +24,7 @@ const Booklet = () => {
         } else {
             return (
             <ul style={songListStyle}>
-                <li style={{display:"inline-grid", fontSize:"24px", justifyContent: "center"}}><h4>Ingen sanger valgt!</h4></li>
+                <li style={{display:"inline-grid", fontSize:"24px", paddingLeft: "25px",justifyContent: "center"}}><h4>Ingen sanger valgt!</h4></li>
             </ul>
             );
         }
@@ -100,10 +100,12 @@ const inputStyle = {
 const songListStyle = {
     display: "grid",
     gridRowGap: "20px",
+    gridRow: "3",
     padding: "0px",
     paddingTop: "15px",
     paddingBottom: "15px",
     marginTop: "0px",
+
 }
 
 const buttonListStyle = {
