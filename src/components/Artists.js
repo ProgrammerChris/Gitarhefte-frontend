@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react"
 import Artist from './artist'
+import Spinner from 'react-spinner-material';
+
 
 /* 
 	* Component handling search through the given JSON of artists with songs, and then showing the results. 
 	* JSON to be fetched from API at the initial render of the app. Only request the list of songs if not already in local storage.
 */
 
-const Artists = ({ artists }) => {
+const Artists = ({artists, dataLoaded}) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
+	const [isLoaded, setIsLoaded] = useState(false);
+
+	if (dataLoaded && !isLoaded) {
+		setIsLoaded(true)
+		console.log(artists);
+	}
 
 	const handleChange = event => {
 		setSearchTerm(event.target.value);
@@ -42,7 +50,7 @@ const Artists = ({ artists }) => {
 		let resultsAsSet = new Set(results) // Converting the array to set for unique items on list. // ? Should this be set as a Set at the start instead of converting here?
 		setSearchResults(Array.from(resultsAsSet))
 
-	}, [searchTerm]);
+	}, [searchTerm, isLoaded]);
 
 	return (
 		<div style={{ display: "grid", gridColumn: "2/5" }}>
@@ -55,13 +63,18 @@ const Artists = ({ artists }) => {
 				placeholder="Søk etter sang eller artist"
 				value={searchTerm}
 				style={inputStyle} />
-			<ul style={{ padding: "0px" }}>
-				{searchResults.map((artist) => (
+			<ul style={{ padding: "0px", textAlign: "center"}}>
+				{isLoaded ? searchResults.map((artist) => (
 					<Artist
 						key={artist}
 						artistName={artist}
 						songs={artists[artist].songs} />
-				))}
+				)) : <li style={{paddingTop: "100px", display: "inline-grid", textAlign: "center"}}>
+						<h3>Henter sanger...</h3>
+						<div style={{display: "inline-grid", justifyContent: "center"}}>
+							<Spinner radius={60} color={"#622C06"} stroke={8} visible={true} />
+						</div>
+					</li>}
 			</ul>
 		</div>
 	)
