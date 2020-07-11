@@ -8,14 +8,13 @@ import Spinner from 'react-spinner-material';
 	* JSON to be fetched from API at the initial render of the app. Only request the list of songs if not already in local storage.
 */
 
-const Artists = ({artists, dataLoaded}) => {
+const Artists = ({ artists, dataLoaded }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	if (dataLoaded && !isLoaded) {
 		setIsLoaded(true)
-		console.log(artists);
 	}
 
 	const handleChange = event => {
@@ -23,7 +22,7 @@ const Artists = ({artists, dataLoaded}) => {
 	};
 
 	const allArtists = Object.entries(artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load. 
-	//! Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
+	//! TODO: Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
 
 	useEffect(() => {
 		// Finner artister som stemmer med søk
@@ -63,15 +62,15 @@ const Artists = ({artists, dataLoaded}) => {
 				placeholder="Søk etter sang eller artist"
 				value={searchTerm}
 				style={inputStyle} />
-			<ul style={{ padding: "0px", textAlign: "center"}}>
+			<ul style={{ padding: "0px", textAlign: "center" }}>
 				{isLoaded ? searchResults.map((artist) => (
 					<Artist
 						key={artist}
 						artistName={artist}
 						songs={artists[artist].songs} />
-				)) : <li style={{paddingTop: "100px", display: "inline-grid", textAlign: "center"}}>
+				)) : <li style={{ paddingTop: "100px", display: "inline-grid", textAlign: "center" }}>
 						<h3>Henter sanger...</h3>
-						<div style={{display: "inline-grid", justifyContent: "center"}}>
+						<div style={{ display: "inline-grid", justifyContent: "center" }}>
 							<Spinner radius={60} color={"#622C06"} stroke={8} visible={true} />
 						</div>
 					</li>}

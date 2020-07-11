@@ -23,9 +23,9 @@ const Booklet = () => {
             );
         } else {
             return (
-            <ul style={songListStyle}>
-                <li style={{display:"inline-grid", fontSize:"24px", paddingLeft: "25px",justifyContent: "center"}}><h4>Ingen sanger valgt!</h4></li>
-            </ul>
+                <ul style={songListStyle}>
+                    <li style={{ display: "inline-grid", fontSize: "24px", paddingLeft: "25px", justifyContent: "center" }}><h4>Ingen sanger valgt!</h4></li>
+                </ul>
             );
         }
     });
