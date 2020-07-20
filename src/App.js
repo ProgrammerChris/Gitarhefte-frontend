@@ -16,8 +16,7 @@ const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [songsInBooklet, setSongsInBooklet] = useState(store.getState());
 
-  let selectedSongs = {}
-
+  // When add or delete song, update number on corner button.
   store.subscribe(() => setSongsInBooklet(store.getState()));
 
   // Add empty array at first page load. Ready to be filled with selected songs.
@@ -25,8 +24,6 @@ const App = () => {
     sessionStorage.setItem('booklet', '[]')
     
   }
-
-  selectedSongs = sessionStorage.getItem('booklet')
 
   //! TODO: Replace with CALL to server wich should have a cached version of the database at all times.
   // Get all artists and songs from database

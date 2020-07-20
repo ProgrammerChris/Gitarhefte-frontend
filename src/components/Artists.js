@@ -63,7 +63,7 @@ const Artists = ({ artists, dataLoaded }) => {
 				value={searchTerm}
 				style={inputStyle} />
 			<ul style={{ padding: "0px", textAlign: "center" }}>
-				{isLoaded ? searchResults.map((artist) => (
+				{isLoaded ? searchResults.sort().map((artist) => (
 					<Artist
 						key={artist}
 						artistName={artist}
