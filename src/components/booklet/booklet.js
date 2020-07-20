@@ -56,7 +56,7 @@ const Booklet = () => {
     };
 
     return (
-        <div id="booklet" style={{ display: "grid", gridColumn: "2/5", gridTemplateColumns: "auto 25% auto" }}>
+        <div id="booklet" style={{ display: "grid", gridColumn: "2/5", gridTemplateColumns: "auto 35% auto" }}>
             <input
                 id="name-input"
                 name="bookletName"

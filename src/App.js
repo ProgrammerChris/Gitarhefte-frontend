@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import CornerButton from './components/cornerbutton';
@@ -6,7 +6,6 @@ import Booklet from "./components/booklet/booklet";
 import Artists from "./components/Artists";
 import Songs from "./components/songs";
 import { db } from './components/firebase';
-
 import { store } from './utils/store'
 
 const App = () => {
