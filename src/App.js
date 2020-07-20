@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import CornerButton from './components/cornerbutton';
@@ -7,21 +7,26 @@ import Artists from "./components/Artists";
 import Songs from "./components/songs";
 import { db } from './components/firebase';
 
+import { store } from './utils/store'
+
 const App = () => {
 
   const [bookletOpen, setBookletOpen] = useState(false)
   const [data, setData] = useState({})
   const [isLoaded, setIsLoaded] = useState(false);
-  const [songsInBooklet, setSongsInBooklet] = useState(12) // Setting the extra <div> on 
+  const [songsInBooklet, setSongsInBooklet] = useState(store.getState());
 
+  let selectedSongs = {}
+
+  store.subscribe(() => setSongsInBooklet(store.getState()));
 
   // Add empty array at first page load. Ready to be filled with selected songs.
   if (!sessionStorage.getItem('booklet')) {
     sessionStorage.setItem('booklet', '[]')
+    
   }
 
-  console.log(JSON.parse(sessionStorage.getItem('booklet')).length);
-  
+  selectedSongs = sessionStorage.getItem('booklet')
 
   //! TODO: Replace with CALL to server wich should have a cached version of the database at all times.
   // Get all artists and songs from database
@@ -40,8 +45,8 @@ const App = () => {
       </Link>
       <Routes>
         <Route path="/" element={<Artists artists={data} dataLoaded={isLoaded} />} />
-        <Route path="/:artist" element={<Songs artists={data} />} />
-        <Route path="booklet" element={<Booklet />} />
+        <Route path="/:artist" element={<Songs artists={data} update={(test) => console.log(test)}/>} />
+        <Route path="booklet" element={<Booklet/>} />
       </Routes>
     </Router>
   )
