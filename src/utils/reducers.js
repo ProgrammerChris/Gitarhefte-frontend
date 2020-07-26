@@ -1,4 +1,4 @@
 
-export const updateSongsInBooklet = (state = JSON.parse(sessionStorage.getItem('booklet')).length, action) => {
-    return JSON.parse(sessionStorage.getItem('booklet')).length;
+export const updateSongsInBooklet = (state = sessionStorage.getItem('booklet') ? JSON.parse(sessionStorage.getItem('booklet')).length : 0, action) => {
+    return sessionStorage.getItem('booklet') ? JSON.parse(sessionStorage.getItem('booklet')).length : 0;
   }

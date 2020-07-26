@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
-import {store} from '../../utils/store';
+import { store } from '../../utils/store';
 
 const Booklet = () => {
 
@@ -46,7 +46,7 @@ const Booklet = () => {
         }
         sessionStorage.setItem('booklet', JSON.stringify(selectedSongs))
         setSelectedSongs(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
-        store.dispatch({type: ""})
+        store.dispatch({ type: "" })
     }
 
     const onSortEnd = ({ oldIndex, newIndex }) => {

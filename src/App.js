@@ -28,8 +28,10 @@ const App = () => {
   // Get all artists and songs from database
   if (!isLoaded) {
     db.collection('Artister').doc('Artister').get().then(doc => {
+      
       setData(doc.data())
       setIsLoaded(true)
+      return JSON.stringify(doc.data(), null, 2)
     })
   }
 
@@ -42,7 +44,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Artists artists={data} dataLoaded={isLoaded} />} />
         <Route path="/:artist" element={<Songs artists={data} update={(test) => console.log(test)}/>} />
-        <Route path="booklet" element={<Booklet/>} />
+        <Route path="booklet" element={<Booklet />} />
       </Routes>
     </Router>
   )
