@@ -5,7 +5,6 @@ import CornerButton from './components/cornerbutton';
 import Booklet from "./components/booklet/booklet";
 import Artists from "./components/Artists";
 import Songs from "./components/songs";
-import { db } from './components/firebase';
 import { store } from './utils/store'
 
 const App = () => {
@@ -27,11 +26,11 @@ const App = () => {
   //! TODO: Replace with CALL to server wich should have a cached version of the database at all times.
   // Get all artists and songs from database
   if (!isLoaded) {
-    db.collection('Artister').doc('Artister').get().then(doc => {
-      
-      setData(doc.data())
+    fetch('http://127.0.0.1:5000/api')
+    .then(response => response.json())
+    .then(data => {
+      setData(data)
       setIsLoaded(true)
-      return JSON.stringify(doc.data(), null, 2)
     })
   }
 
