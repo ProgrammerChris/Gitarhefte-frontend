@@ -23,7 +23,6 @@ const App = () => {
     sessionStorage.setItem('booklet', '[]')
   }
 
-  //! TODO: Replace with CALL to server wich should have a cached version of the database at all times.
   // Get all artists and songs from database
   if (!isLoaded || !sessionStorage.getItem('data')) {
     fetch('http://127.0.0.1:5000/api')
