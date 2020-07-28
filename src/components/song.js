@@ -1,7 +1,7 @@
 import React from 'react'
 import {store} from '../utils/store';
 
-const Song = ({ artistName, songName, update }) => {
+const Song = ({ artistName, songName }) => {
 	//TODO: Add preview button
 	//TODO: Add onClicked animation. Either by floating the component to the booklet button, or just change color on button on click.
 

@@ -55,6 +55,20 @@ const Booklet = () => {
         sessionStorage.setItem('booklet', JSON.stringify(newSelectedSongs))
     };
 
+    const createBooklet = (bookletName, songs) => {
+        if (!bookletName || !songs || songs.length < 1) {
+            alert('Trenger sanger og heftenavn for å lage hefte!')
+        } else {
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ bookletName: bookletName, songs: songs })
+            };
+            fetch('http://127.0.0.1:5000/booklet', requestOptions)
+                .catch(error => console.log(error));
+        }
+    }
+
     return (
         <div id="booklet" style={{ display: "grid", gridColumn: "2/5", gridTemplateColumns: "auto 35% auto" }}>
             <input
@@ -70,7 +84,7 @@ const Booklet = () => {
                     {selectedSongs.map((song, index) => deleteButtons(song, index))}
                 </ul>
             </div>
-            <button style={buttonStyle}>Last ned hefte</button>
+            <button onClick={() => createBooklet(document.querySelector('input').value, selectedSongs)}style={buttonStyle}>Last ned hefte</button>
         </div>
     )
 }
