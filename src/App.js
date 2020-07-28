@@ -6,6 +6,7 @@ import Booklet from "./components/booklet/booklet";
 import Artists from "./components/Artists";
 import Songs from "./components/songs";
 import { store } from './utils/store'
+import Spinner from 'react-spinner-material';
 
 const App = () => {
 
@@ -20,18 +21,19 @@ const App = () => {
   // Add empty array at first page load. Ready to be filled with selected songs.
   if (!sessionStorage.getItem('booklet')) {
     sessionStorage.setItem('booklet', '[]')
-    
   }
 
   //! TODO: Replace with CALL to server wich should have a cached version of the database at all times.
   // Get all artists and songs from database
-  if (!isLoaded) {
+  if (!isLoaded || !sessionStorage.getItem('data')) {
     fetch('http://127.0.0.1:5000/api')
-    .then(response => response.json())
-    .then(data => {
-      setData(data)
-      setIsLoaded(true)
-    })
+      .then(response => response.json())
+      .then(data => {
+        sessionStorage.setItem('data', JSON.stringify(data))
+        setData(data)
+        setIsLoaded(true)
+      })
+      .catch(error => console.log(error))
   }
 
   return (
@@ -42,7 +44,12 @@ const App = () => {
       </Link>
       <Routes>
         <Route path="/" element={<Artists artists={data} dataLoaded={isLoaded} />} />
-        <Route path="/:artist" element={<Songs artists={data} update={(test) => console.log(test)}/>} />
+        <Route path="/:artist"
+          element={isLoaded ?
+            <Songs artists={data} /> :
+            <div style={{ display: "inline-grid", justifyContent: "center", gridRow: '2', gridColumn: '3' }}>
+              <Spinner radius={60} color={"#622C06"} stroke={8} visible={true} />
+            </div>} />
         <Route path="booklet" element={<Booklet />} />
       </Routes>
     </Router>
