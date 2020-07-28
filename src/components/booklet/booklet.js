@@ -62,9 +62,21 @@ const Booklet = () => {
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ bookletName: bookletName, songs: songs })
+                body: JSON.stringify({ bookletName: bookletName, songs: songs }),
             };
             fetch('http://127.0.0.1:5000/booklet', requestOptions)
+                .then(response => response.blob())
+                .then(blob => {
+                    var url = window.URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = url;
+                    a.download = bookletName+'.pdf';
+                    document.body.appendChild(a); // we need to append the element to the dom -> otherwise it will not work in firefox
+                    a.click();
+                    a.remove();
+                    // OPEN IN BROWSER
+                    // window.open(url)
+                })
                 .catch(error => console.log(error));
         }
     }
@@ -84,7 +96,7 @@ const Booklet = () => {
                     {selectedSongs.map((song, index) => deleteButtons(song, index))}
                 </ul>
             </div>
-            <button onClick={() => createBooklet(document.querySelector('input').value, selectedSongs)}style={buttonStyle}>Last ned hefte</button>
+            <button onClick={() => createBooklet(document.querySelector('input').value, selectedSongs)} style={buttonStyle} download>Last ned hefte</button>
         </div>
     )
 }
