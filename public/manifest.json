@@ -1,6 +1,6 @@
 {
-  "short_name": "Sanghefter",
-  "name": "Sanghefter App",
+  "short_name": "gitarhefte-frontend",
+  "name": "gitarhefte-frontend",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
