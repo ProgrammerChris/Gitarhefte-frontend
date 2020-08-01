@@ -64,7 +64,7 @@ const Booklet = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ bookletName: bookletName, songs: songs }),
             };
-            fetch('http://127.0.0.1:5000/booklet', requestOptions)
+            fetch('http://161.35.29.226:5000/booklet', requestOptions)
                 .then(response => response.blob())
                 .then(blob => {
                     var url = window.URL.createObjectURL(blob);
