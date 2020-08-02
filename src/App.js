@@ -22,9 +22,11 @@ const App = () => {
   if (!sessionStorage.getItem('booklet')) {
     sessionStorage.setItem('booklet', '[]')
   }
+
   //!####################################
   //TODO! WHY IS THE API CALLED TWICE!!??
   //!####################################
+  
   // Get all artists and songs from database
   if (!isLoaded || !sessionStorage.getItem('data')) {
     fetch('http://161.35.29.226:5000/api')

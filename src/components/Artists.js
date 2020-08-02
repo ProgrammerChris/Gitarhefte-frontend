@@ -8,6 +8,8 @@ import Spinner from 'react-spinner-material';
 	* JSON to be fetched from API at the initial render of the app. Only request the list of songs if not already in local storage.
 */
 
+//! TODO: Load max 20 of the artists at the time on the home screen?
+
 const Artists = ({ artists, dataLoaded }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
