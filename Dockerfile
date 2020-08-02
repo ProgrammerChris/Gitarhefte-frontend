@@ -16,4 +16,6 @@ COPY nginx-selfsigned.key /etc/nginx/ssl/
 COPY nginx-selfsigned.crt /etc/nginx/ssl/
 
 EXPOSE 80
+EXPOSE 443
+
 CMD ["nginx", "-g", "daemon off;"]
