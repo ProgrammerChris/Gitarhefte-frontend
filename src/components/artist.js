@@ -15,25 +15,30 @@ const Artist = ({ artistName, songs }) => {
 	}
 
 	return (
-		<li style={listElementStyle}>
-
-			<Link style={{ textDecoration: "none", color: "black" }} to={`/${artistName}`}>
+		<div style={listElementStyle}>
+			<Link style={{textDecoration: "none", color: "black" }} to={`/${artistName}`}>
 				<div
 					onMouseOver={toggleHover}
 					onMouseOut={unToggleHover}
 					style={style}>
-					<div style={artistStyle}>{artistName}</div><div style={countStyle}>{songs.length}</div>
+					<div style={artistStyle}>
+						{artistName}
+					</div>
+					<div style={countStyle}>
+						{songs.length}
+					</div>
 				</div>
 			</Link>
-		</li>
+		</div>
 	)
 }
 
 const listElementStyle = {
 	display: "grid",
 	height: "fit-content",
+	width: "100%",
 	maxHeight: "100px",
-	paddingBottom: "15px"
+	paddingTop: "10px", 
 }
 
 const artistStyle = {
@@ -59,7 +64,7 @@ const hoverStyle = {
 	textAlign: "center",
 	lineHeight: "50px",
 	outline: "0",
-	cursor: "pointer",
+	cursor: "pointer"
 }
 
 const normalStyle = {
@@ -76,7 +81,5 @@ const normalStyle = {
 	lineHeight: "50px",
 	outline: "0",
 }
-
-
 
 export default Artist;

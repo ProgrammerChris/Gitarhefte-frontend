@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Artist from './artist'
 import Spinner from 'react-spinner-material';
+import LazyLoad from 'react-lazyload';
 
 
 /* 
@@ -54,7 +55,9 @@ const Artists = ({ artists, dataLoaded }) => {
 	}, [searchTerm, isLoaded]);
 
 	return (
-		<div style={{ display: "grid", gridColumn: "2/5" }}>
+
+        //TODO: Show only input field. Hav own button to show all artists. When search, artists show while typing.
+		<div style={{ display: "grid", gridColumn: "2/5", paddingBottom: "100px"}}>
 			<input
 				id="search-input"
 				name="searchbar"
@@ -64,19 +67,12 @@ const Artists = ({ artists, dataLoaded }) => {
 				placeholder="Søk etter sang eller artist"
 				value={searchTerm}
 				style={inputStyle} />
-			<ul style={{ padding: "0px", textAlign: "center" }}>
-				{isLoaded ? searchResults.sort().map((artist) => (
-					<Artist
-						key={artist}
-						artistName={artist}
-						songs={artists[artist].songs} />
-				)) : <li style={{ paddingTop: "100px", display: "inline-grid", textAlign: "center" }}>
-						<h3>Henter sanger...</h3>
-						<div style={{ display: "inline-grid", justifyContent: "center" }}>
-							<Spinner radius={60} color={"#622C06"} stroke={8} visible={true} />
-						</div>
-					</li>}
-			</ul>
+				{isLoaded ? searchResults.sort().map(artist => (
+                    <Artist key={artist} artistName={artist} songs={artists[artist].songs} />
+				)) :    
+                <div style={{ display: "inline-grid", alignItems: "center", justifyContent: "center", paddingTop:"20px" }}>
+                    <Spinner radius={60} color={"#622C06"} stroke={8} visible={true} />
+                </div>}
 		</div>
 	)
 }
