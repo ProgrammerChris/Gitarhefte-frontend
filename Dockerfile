@@ -1,4 +1,6 @@
-FROM node:14.15.4
+FROM alpine:3.10
+
+ENV NODE_VERSION 15.5.1
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
