@@ -1,7 +1,6 @@
 import React from 'react'
 import Song from './song'
 import { useParams } from 'react-router'
-import LazyLoad from 'react-lazyload';
 
 
 // * Component containing a list of songs from a given artists list of songs.
