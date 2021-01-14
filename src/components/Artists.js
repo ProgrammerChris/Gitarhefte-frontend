@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Artist from './artist'
 import Spinner from 'react-spinner-material';
-import LazyLoad from 'react-lazyload';
 
 
 /* 
