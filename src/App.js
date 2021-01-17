@@ -29,7 +29,7 @@ const App = () => {
   
   // Get all artists and songs from database
   if (!isLoaded || !sessionStorage.getItem('data')) {
-    fetch('http://161.35.29.226:5000/api')
+    fetch('http://188.166.111.222:5000/api')
       .then(response => response.json())
       .then(data => {
         sessionStorage.setItem('data', JSON.stringify(data))
