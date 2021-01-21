@@ -15,6 +15,8 @@ const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [songsInBooklet, setSongsInBooklet] = useState(store.getState());
 
+  const API_URL = 'https://api.gitarhefte.no'
+
   // When add or delete song, update number on corner button.
   store.subscribe(() => setSongsInBooklet(store.getState()));
 
@@ -29,7 +31,7 @@ const App = () => {
   
   // Get all artists and songs from database
   if (!isLoaded || !sessionStorage.getItem('data')) {
-    fetch('http://188.166.111.222:5000/api')
+    fetch(API_URL + '/api')
       .then(response => response.json())
       .then(data => {
         sessionStorage.setItem('data', JSON.stringify(data))

@@ -6,6 +6,7 @@ import { store } from '../../utils/store';
 const Booklet = () => {
 
     const [selectedSongs, setSelectedSongs] = useState(Array.from(JSON.parse(sessionStorage.getItem('booklet'))))
+    const API_URL = 'https://api.gitarhefte.no'
 
     const SortableItem = SortableElement(({ song, index }) =>
         <li style={listElementStyle}>
@@ -64,7 +65,7 @@ const Booklet = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ bookletName: bookletName, songs: songs }),
             };
-            fetch('http://188.166.111.222:5000/booklet', requestOptions)
+            fetch(API_URL + '/booklet', requestOptions)
                 .then(response => response.blob())
                 .then(blob => {
                     var url = window.URL.createObjectURL(blob);
