@@ -24,8 +24,7 @@ const Artists = ({ artists, dataLoaded }) => {
 	};
 
 	const allArtists = Object.entries(artists)
-	// eslint-disable-next-line
-	
+
 	useEffect(() => {
 		 // Artists and songs supplied as prop from App. JSON gets loaded at first site load.
 		//! TODO: Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
@@ -52,7 +51,7 @@ const Artists = ({ artists, dataLoaded }) => {
 
 		let resultsAsSet = new Set(results) // Converting the array to set for unique items on list. // ? Should this be set as a Set at the start instead of converting here?
 		setSearchResults(Array.from(resultsAsSet))
-
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchTerm, isLoaded]);
 
 	return (
