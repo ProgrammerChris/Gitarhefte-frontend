@@ -23,10 +23,9 @@ const Artists = ({ artists, dataLoaded }) => {
 		setSearchTerm(event.target.value);
 	};
 
-	const allArtists = Object.entries(artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load. 
-	//! TODO: Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
-
 	useEffect(() => {
+		const allArtists = Object.entries(artists) // Artists and songs supplied as prop from App. JSON gets loaded at first site load.
+		//! TODO: Cache JSON in browser for 5min? Also redis or memcache on backend anyway.
 		// Finner artister som stemmer med søk
 		let artistHits = allArtists.filter((searchResults) => (
 			searchResults[0].toLowerCase().includes(searchTerm.toLowerCase())
