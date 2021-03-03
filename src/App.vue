@@ -1,11 +1,5 @@
 <template>
-  <header>
-    <Navbar id="navbar"/>
-      <h1 id="logo"><strong>G</strong>itarhefte</h1>
-      <div id="profile">
-        <img src="@/assets/user.svg" height="35" width="35" alt="profil">
-      </div>
-  </header>
+  <Header/>
   <router-view />
   <div id="circle">
     <div id="inner-triangle">
@@ -16,13 +10,13 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue';
+import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
-    Navbar,
+    Header,
     Footer
   }
 }
@@ -60,7 +54,7 @@ h1 {
 header {
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-columns: 5em auto 5em;
+  grid-template-columns: minmax(5em, auto) minmax(auto, 600px) minmax(5em, auto);
   background-color: var(--light);
 }
 #circle {

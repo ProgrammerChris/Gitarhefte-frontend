@@ -1,4 +1,5 @@
 <template>
+  <header>
     <a href="javascript:void(0);" class="icon" @click="open()">&#9776;</a>
     <nav id="nav" class="nav">
       <router-link class="menu-item" to="/">Hjem</router-link>
@@ -6,6 +7,11 @@
       <router-link class="menu-item" to="/artister">Artister</router-link>
       <router-link class="menu-item" to="#">Sanger</router-link>
     </nav>
+    <h1 id="logo"><strong>G</strong>itarhefte</h1>
+    <div id="profile">
+      <img src="@/assets/user.svg" height="35" width="35" alt="profil">
+    </div>
+  </header>
 </template>
 
 <script>
@@ -43,6 +49,8 @@ nav a {
   justify-self: center;
   align-self: center;
   font-size: 2em;
+  cursor: pointer;
+
 }
 #nav-bar {
   grid-column: 1;
@@ -52,19 +60,29 @@ nav a {
 .nav {
   grid-row: 2;
   grid-column: 1 /span 3;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  transition: all .4s ease;
 }
 .navopen {
   grid-row: 2;
   grid-column: 1 /span 3;
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  display: block
 }
 @media screen and (min-width: 600px) {
   .nav {
+    opacity: 1;
+    visibility: visible;
     display: block;
+    height: auto;
+    padding-bottom: 1em;
   }
   .icon {
-    display: none;
+    visibility: hidden;
   }
 }
 </style>
