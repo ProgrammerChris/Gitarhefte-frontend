@@ -1,9 +1,7 @@
 <template>
-    <div class="artist">
-      <router-link :to="'/artister/' + artist">
-        <h3><strong>{{ artist }}</strong></h3>
-      </router-link>
-    </div>
+  <router-link :to="'/artister/' + artist">
+    <strong>{{ artist }}</strong>
+  </router-link>
 </template>
 
 <script>
@@ -16,16 +14,18 @@ export default {
 </script>
 
 <style scoped>
-.artist {
+a {
+  display: block;
   background-color: var(--egg-yellow);
   max-width: 25em;
   min-width: 20em;
-  padding: .2em;
+  padding: 1em;
   margin: .5em;
-  border-radius: 30px; 
+  text-decoration: none;
+  border-radius: 30px;
 }
-.artist:hover {
+a:hover {
   font-size: 1.1em;
-  margin: .25em;
+  margin: .32em;
 }
 </style>

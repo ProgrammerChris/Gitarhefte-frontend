@@ -1,13 +1,14 @@
 <template>
   <header>
-    
     <a href="javascript:void(0);" class="icon" @click="open()">&#9776;</a>
     <nav id="nav" class="nav">
       <router-link class="menu-item" to="/">Hjem</router-link>
       <router-link class="menu-item" to="/om">Om</router-link>
       <router-link class="menu-item" to="/artister">Artister</router-link>
     </nav>
-    <h1 id="logo"><strong>G</strong>itarhefte</h1>
+    <router-link to="/">
+      <h1 id="logo"><strong>G</strong>itarhefte</h1>
+    </router-link>
     <div id="profile">
       <img src="@/assets/user.svg" height="35" width="35" alt="profil">
     </div>

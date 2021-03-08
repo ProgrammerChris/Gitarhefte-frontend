@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Artists from "../views/Artists.vue";
-import Artist from "../components/Artist.vue";
+import Artist from "../views/Artist.vue";
 import About from "../views/About.vue"
 import Results from "../views/Results.vue"
 import Booklet from "../views/Booklet.vue"
