@@ -32,6 +32,8 @@ html {
   --medium-gray: #707070;
   --egg-yellow: #FFDF6C;
   --light: #FEFEFE;
+
+  overflow-y: scroll;
 }
 body {
   background-color: var(--blackish);
@@ -40,10 +42,14 @@ body {
 h1 strong {
   font-size: 3.2rem;
 }
-
 h1 {
   color: var(--blackish);
   margin: 0;
+}
+h2 {
+  color: var(--light);
+  font-weight: lighter;
+  
 }
 #app {
   font-family: 'Roboto Slab', serif;
@@ -58,6 +64,7 @@ header {
   background-color: var(--light);
 }
 #circle {
+  z-index: -2;
   position: fixed;
   left: -4rem;
   bottom: -4rem;
@@ -67,6 +74,7 @@ header {
   border-radius: 50%;
 }
 #inner-triangle {
+  z-index: -1;
   position: relative;
   width: 0; 
   height: 0; 
@@ -77,6 +85,7 @@ header {
   border-bottom: 3rem solid #343434;
 }
 #outer-triangle {
+  z-index: 0;
   position: relative;
   top: -2.5rem;
   left: -0.8rem;
@@ -86,15 +95,6 @@ header {
   border-right: 2.5rem solid transparent;
   border-bottom: 5rem solid #FFDF6C;
 }
-#logo {
-  grid-row: 1;
-  grid-column: 2;
-}
-#profile {
-  grid-row: 1;
-  grid-column: 3;
-  justify-self: center;
-  align-self: center;
-}
+
 
 </style>

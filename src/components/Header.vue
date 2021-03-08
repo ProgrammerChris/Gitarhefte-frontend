@@ -1,11 +1,11 @@
 <template>
   <header>
+    
     <a href="javascript:void(0);" class="icon" @click="open()">&#9776;</a>
     <nav id="nav" class="nav">
       <router-link class="menu-item" to="/">Hjem</router-link>
-      <router-link class="menu-item" to="#">Om</router-link>
+      <router-link class="menu-item" to="/om">Om</router-link>
       <router-link class="menu-item" to="/artister">Artister</router-link>
-      <router-link class="menu-item" to="#">Sanger</router-link>
     </nav>
     <h1 id="logo"><strong>G</strong>itarhefte</h1>
     <div id="profile">
@@ -25,7 +25,6 @@ export default {
       } else {
         nav.className = "nav";
       }
-
     }
   }
 }
@@ -37,7 +36,6 @@ nav {
   transition: 0.4s;
   padding-bottom: 1em;
 }
-
 a {
   text-decoration: none;
   color: var(--blackish);
@@ -45,41 +43,60 @@ a {
 nav a {
   padding: 0 1em;
 }
+nav a.router-link-exact-active {
+  font-weight: bold;
+}
+#logo {
+  grid-row: 1;
+  grid-column: 2;
+}
+#profile {
+  grid-row: 1 / span 2;
+  grid-column: 3;
+  justify-self: center;
+  align-self: center;
+}
 .icon {
   justify-self: center;
   align-self: center;
   font-size: 2em;
   cursor: pointer;
-
 }
 #nav-bar {
   grid-column: 1;
   justify-self: center;
   align-self: center;
 }
+#nav {
+  transition: all 0.5s, opacity 1s ease;
+}
 .nav {
   grid-row: 2;
   grid-column: 1 /span 3;
   visibility: hidden;
   opacity: 0;
-  height: 0;
   padding: 0;
-  transition: all .4s ease;
+  max-height: 0;
 }
 .navopen {
   grid-row: 2;
   grid-column: 1 /span 3;
   opacity: 1;
   visibility: visible;
-  display: block
+  display: block;
+  max-height: 300px;
+  padding: .5em 0em 1em 0em;
+}
+.menu-item:hover {
+  text-decoration: underline;
 }
 @media screen and (min-width: 600px) {
-  .nav {
+  #nav {
     opacity: 1;
-    visibility: visible;
     display: block;
-    height: auto;
-    padding-bottom: 1em;
+    visibility: visible;
+    max-height: 300px;
+    padding: .5em 0em 1em 0em;
   }
   .icon {
     visibility: hidden;

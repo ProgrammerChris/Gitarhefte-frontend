@@ -2,6 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Artists from "../views/Artists.vue";
 import Artist from "../components/Artist.vue";
+import About from "../views/About.vue"
+import Results from "../views/Results.vue"
+import Booklet from "../views/Booklet.vue"
 
 const routes = [
   {
@@ -17,15 +20,23 @@ const routes = [
   {
     path: "/artist/:id",
     name: "Artist",
-    component: Artist,
-    children: [
-      {
-        path: '', 
-        component: Artist
-      }
-    ]
+    component: Artist
   },
-  
+  {
+    path: "/om",
+    name: "Om",
+    component: About
+  },
+  {
+    path: "/resultater/:id",
+    name: "Resultater",
+    component: Results
+  },
+  {
+    path: "/hefte",
+    name: "Hefte",
+    component: Booklet
+  },
 ];
 
 const router = createRouter({
