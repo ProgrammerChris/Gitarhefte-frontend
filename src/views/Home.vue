@@ -1,12 +1,14 @@
 <template>
-  <div class="home">
-    
-  </div>
+  <Searchfield/>
 </template>
 
 <script>
+import Searchfield from '../components/Searchfield.vue'
+
 export default {
   name: "Home",
-  components: {}
+  components: {
+    Searchfield
+  }
 };
 </script>
