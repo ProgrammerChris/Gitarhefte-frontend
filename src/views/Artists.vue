@@ -2,7 +2,7 @@
   <h2>Artister</h2>
   <div id="loader" v-if="loading"></div>
   <ol v-if="loaded">
-    <li v-for="artist in artister" :key="artist">
+    <li v-for="artist in artists" :key="artist">
       <Artist :artist="artist"/>
     </li>
   </ol>
@@ -19,12 +19,17 @@ export default {
     return {
       loading: true,
       loaded: !this.loading,
-      artister: []
+      artists: []
     }
   },
-  created() {
-    this.fetchFromAPI()
-    this.fetchFromStorage()
+  mounted() {
+    if (!this.$store.getters.getDataState) {
+      console.log("API")
+      this.fetchFromAPI()
+    } else {
+      console.log("Storage")
+      this.fetchFromStorage()
+    }
   },
   methods: {
     fetchFromAPI() {
@@ -34,17 +39,19 @@ export default {
         return response.json()
       })
       .then(data => {
-        this.artister = Object.keys(data)
+        this.artists = Object.keys(data)
+        sessionStorage.setItem('data', JSON.stringify(data))
+        this.$store.dispatch('updateHaveData')
       })
     },
     fetchFromStorage() {
-      
+      this.loading = false
+      this.artists = Object.keys(JSON.parse(sessionStorage.getItem('data')))
     }
   },
   components: {
     Artist
   }
-
 }
 </script>
 

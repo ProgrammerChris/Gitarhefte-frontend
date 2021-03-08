@@ -1,15 +1,12 @@
 import { createStore } from "vuex";
-import Mutations from './mutations';
-import Actions from './actions';
-import State from './state';
-import Getter from './getter'
+import mutations from './mutations';
+import actions from './actions';
+import state from './state';
+import getters from './getters'
 
 export default createStore({
-  name: 'store',
-  components: {
-    Mutations,
-    Actions,
-    State,
-    Getter
-  }
+  mutations,
+  actions,
+  state,
+  getters
 });
