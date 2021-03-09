@@ -1,15 +1,20 @@
 <template>
   <div id="search-box">
-    <input id="search-field" type="text">
+    <input id="search-field" type="text" v-model="searchText">
     <button id="search-button" @click="search"></button>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      searchText: ''
+    }
+  },
   methods: {
     search() {
-
+      
     }
   }
 }
