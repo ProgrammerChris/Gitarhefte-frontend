@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/artister/' + artist">
+  <router-link :to="'/artist/' + artist">
     <strong>{{ artist }}</strong>
   </router-link>
 </template>

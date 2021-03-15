@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Artists from "../views/Artists.vue";
-import Artist from "../views/Artist.vue";
+import Songs from "../views/Songs.vue";
 import About from "../views/About.vue"
 import Results from "../views/Results.vue"
 import Booklet from "../views/Booklet.vue"
@@ -20,7 +20,8 @@ const routes = [
   {
     path: "/artist/:id",
     name: "Artist",
-    component: Artist
+    component: Songs,
+    props: route => ({ artist: route.params.id })
   },
   {
     path: "/om",

@@ -3,13 +3,13 @@
   <div id="loader" v-if="loading"></div>
   <ol v-if="loaded">
     <li v-for="artist in artists" :key="artist">
-      <ArtistListing :artist="artist"/>
+      <Artist :artist="artist"/>
     </li>
   </ol>
 </template>
 
 <script>
-import ArtistListing from '@/components/ArtistListing.vue';
+import Artist from '@/components/Artist.vue';
 
 var API = 'https://api.gitarhefte.no/api';
 
@@ -48,7 +48,7 @@ export default {
     }
   },
   components: {
-    ArtistListing
+    Artist
   }
 }
 </script>

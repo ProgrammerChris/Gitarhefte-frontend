@@ -4,7 +4,25 @@
 
 <script>
 export default {
-  name: 'Song',
+  name: "Song",
+  props: {
+    artist: {
+      type: String,
+      required: true
+    },
+    song: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    addToBooklet() {
+
+    },
+    preview() {
+      
+    }
+  }
 }
 </script>
 
