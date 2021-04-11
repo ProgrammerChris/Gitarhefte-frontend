@@ -9,9 +9,9 @@
     <router-link to="/">
       <h1 id="logo"><strong>G</strong>itarhefte</h1>
     </router-link>
-    <div id="booklet" @click="openBooklet">
+    <router-link id="booklet" to="/hefte">
       <img src="@/assets/booklet.svg" height="35" width="35" alt="profil">
-    </div>
+    </router-link>
   </header>
 </template>
 
@@ -26,9 +26,6 @@ export default {
       } else {
         nav.className = "nav";
       }
-    },
-    openBooklet() {
-      // Open booklet
     }
   }
 }

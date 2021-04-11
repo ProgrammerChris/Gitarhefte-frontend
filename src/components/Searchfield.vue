@@ -1,7 +1,8 @@
 <template>
   <div id="search-box">
-    <input id="search-field" type="text" v-model="searchText">
+    <input id="search-field" type="text" v-model="searchText" autocomplete="off">
     <button id="search-button" @click="search"></button>
+    <label v-show="results">{{results}}</label>
   </div>
 </template>
 
@@ -9,12 +10,18 @@
 export default {
   data() {
     return {
-      searchText: ''
+      searchText: '',
+    }
+  },
+  computed: {
+    results() {
+      return '' // Return search count here!
     }
   },
   methods: {
     search() {
-      
+    
+      // Search here and show results
     }
   }
 }
