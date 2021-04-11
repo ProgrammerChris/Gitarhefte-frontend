@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="song">
-      <div class="song-title">{{ song }}</div>
+      <div class="song-title"><strong>{{ song }}</strong></div>
       <div class="preview-song" @click="preview"><img src='../assets/preview.svg' alt="preview" height="25" width="25"></div>
       <div class="add-song" @click="addToBooklet"><img src='../assets/add_to_booklet.svg' alt="add-song" height="25" width="25"></div>
     </div>
@@ -46,7 +46,7 @@ div {
 
 .song-title {
   grid-column: span 2;
-  background-color: #FEFEFE;
+  background-color: var(--light);
   border-radius: 10px 10px 0 0 ;
   margin-bottom: 2px;
 }
@@ -54,7 +54,7 @@ div {
 .preview-song {
   width: 146px;
   grid-row: 2;
-  background-color: #FFDF6C;
+  background-color: var(--egg-yellow);
   margin-top: 2px;
   margin-right: 2px;
   border-radius: 0 0 10px 10px;
@@ -66,7 +66,7 @@ div {
 
 .add-song {
   grid-row: 2;
-  background-color: #FFDF6C;
+  background-color: var(--egg-yellow);
   margin-top: 2px;
   margin-left: 2px;
   border-radius: 0 0 10px 10px;

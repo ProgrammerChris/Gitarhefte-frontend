@@ -9,8 +9,8 @@
     <router-link to="/">
       <h1 id="logo"><strong>G</strong>itarhefte</h1>
     </router-link>
-    <div id="profile">
-      <img src="@/assets/user.svg" height="35" width="35" alt="profil">
+    <div id="booklet" @click="openBooklet">
+      <img src="@/assets/booklet.svg" height="35" width="35" alt="profil">
     </div>
   </header>
 </template>
@@ -26,6 +26,9 @@ export default {
       } else {
         nav.className = "nav";
       }
+    },
+    openBooklet() {
+      // Open booklet
     }
   }
 }
@@ -51,11 +54,12 @@ nav a.router-link-exact-active {
   grid-row: 1;
   grid-column: 2;
 }
-#profile {
+#booklet {
   grid-row: 1 / span 2;
   grid-column: 3;
   justify-self: center;
   align-self: center;
+  cursor: pointer;
 }
 .icon {
   justify-self: center;

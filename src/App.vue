@@ -1,9 +1,11 @@
 <template>
+<div>
   <Header/>
   <router-view />
   <div id="circle">
     <div id="inner-triangle">
-    <div id="outer-triangle"></div> 
+      <div id="outer-triangle"></div>
+    </div>
   </div>
   <Footer/>
 </div>
