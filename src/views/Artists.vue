@@ -1,11 +1,13 @@
 <template>
-  <h2>Artister</h2>
-  <div id="loader" v-if="loading"></div>
-  <ol v-if="loaded">
-    <li v-for="artist in artists" :key="artist">
-      <Artist :artist="artist"/>
-    </li>
-  </ol>
+  <div>
+    <h2>Artister</h2>
+    <div id="loader" v-if="loading"></div>
+    <ol v-if="loaded">
+      <li v-for="artist in artists" :key="artist">
+        <Artist :artist="artist"/>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>

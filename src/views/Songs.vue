@@ -1,15 +1,19 @@
 <template>
-  <h2>{{ artist }}</h2>
-  <ol>
-    <li v-for="song in getSongs" :key="song">
-      <p>{{ song }}</p>
-    </li>
-  </ol>
+  <div>
+    <h2>{{ artist }}</h2>
+    <ol>
+      <li v-for="song in getSongs" :key="song">
+        <Song :song="song" :artist="artist"/>
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>
+import Song from '@/components/Song.vue';
+
 export default {
-  name: "Songs",
+  name: 'Songs',
   props: {
     artist: {
       type: String,
@@ -28,6 +32,9 @@ export default {
   },
   created() {
     this.songs = JSON.parse(sessionStorage.getItem('data'))[this.artist]["songs"]
+  },
+  components: {
+    Song
   }
 }
 </script>
@@ -36,5 +43,7 @@ export default {
 h2 {
   color: var(--egg-yellow)
 }
-
+li {
+  padding-bottom: 1em;
+}
 </style>
